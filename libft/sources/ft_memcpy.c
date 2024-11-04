@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:29:43 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/04 11:51:24 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:50:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest_p);
 }
-
+/*
 #include <string.h>
 #include <stdio.h>
 int	main(void)
@@ -61,3 +61,4 @@ int	main(void)
 
 	return (0);
 }
+*/
