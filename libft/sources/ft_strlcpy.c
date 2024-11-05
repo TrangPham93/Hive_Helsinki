@@ -6,45 +6,26 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/04 19:30:43 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/05 16:25:59 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	count;
-
-	count = 0;
-	while (*str++ != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t i;
-	size_t	len;
-	char	*s;
+	size_t	i;
 
 	i = 0;
-	s = (const char)src;
-	len = ft_strlen(s);
-	if (size == 0)
-		return (len);
-	else
+	while (i < size - 1 && src[i] != '\0')
 	{
-		while (len < size - 1)
-		{
-			dst[len] = src[len];
-			len++;
-		}
-		dst[len] = '\0';
+		dst[i] = src[i];
+		i++;
 	}
-	return (len);
+	dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }
 /* 
 Where dst is the destination buffer, 
@@ -56,18 +37,19 @@ and the value returned is the size of string src.
 (The value returned is always the size of string src 
 regardless of how many characters are copied.)
  */
-#include <string.h>
+
+/* #include <string.h>
 #include <stdio.h>
 
 int	main(void)
 {
-	char d[20] = "Visao";
-	char s[20]	= "HAO";
+	char d[20] = "Vis";
+	char s[20]	= "HAKHA";
 
-	// printf("%d\n",strlcpy(d,s,2));
-	// printf("%d\n",ft_strlcpy(d,s,2));
+	printf("%d\n",strlcpy(d,s,2));
+	printf("%d\n",ft_strlcpy(d,s,2));
 
-	printf("%zu\n",strlcpy(d,s,5));
-	printf("%zu\n",ft_strlcpy(d,s,5));
-	//ft_strlcpy
+	printf("%zu\n",strlcpy(d,s,3));
+	printf("%zu\n",ft_strlcpy(d,s,3));
 }
+ */
