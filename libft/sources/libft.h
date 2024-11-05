@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/05 21:42:11 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/05 21:49:01 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_toupper(int c);
 int		ft_strlen(char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void	*s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
