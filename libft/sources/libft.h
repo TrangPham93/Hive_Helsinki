@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/05 21:49:01 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/06 18:29:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h> 
 # include <stdlib.h>
+# include <limits.h>
 
 // char functions
 int		ft_isalpha(unsigned char c);
