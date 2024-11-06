@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:45:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/05 22:09:11 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/06 17:26:01 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,72 +17,78 @@ int	ft_strlen(char *str)
 	int	count;
 
 	count = 0;
-	while (*str++ != '\0')
+	while (*str != '\0')
 	{
 		count++;
+		str++;
 	}
 	return (count);
-}
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
 }
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	// const char	*p;
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
 
-	// i = 0;
-	if (little == (void *)0)
+	i = 0;
+	if (*little == '\0')
 		return ((char *)big);
-	while (len-- && ft_strlen((char *)big) >= ft_strlen((char *)little))
+	little_len = ft_strlen((char *)little);
+	if (len < little_len)
+		return ((void *)0);
+	while (i + little_len <= len && big[i] != '\0')
 	{
-		if (ft_strncmp(big, little, len) == 0)
-			return ((char *)big);
-		big++;
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len && j < little_len)
+			j++;
+		if (j == little_len)
+			return ((char *)&big[i]);
+		i++;
 	}
 	return ((void *)0);
 }
-
-
-#include <stdio.h>
-
+/* #include <stdio.h>
 #include <string.h>
 
 int	main(void)
 {
 	char	*s1 = "NOhowb\n";
-	char	*s2 = "how";
+	char	*s2 = "ho";
+	char	*result;
 	
-	
-	// printf("%s\n", strnstr(s1, s2, 7));
-	printf("%s\n", ft_strnstr(s1, s2, 7));
+	result = ft_strnstr(s1, s2, 7);
+	printf("%s\n", result ? result : "null");
 	printf("\n");
-	// printf("%d\n", strnstr(s1, s2, 5));
-	// printf("%d\n", ft_strnstr(s1, s2, 5));
-	// printf("\n");
-	// printf("%d\n", strnstr(s1, s2, 6));
-	// printf("%d\n", ft_strnstr(s1, s2, 6));
-	// printf("\n");
+
+	result = ft_strnstr(s1, s2, 5);
+	printf("%s\n", result ? result : "null");
+	printf("\n");
+
+	result = ft_strnstr(s1, s2, 3);
+	printf("%s\n", result ? result : "null");
+	printf("\n");
+	
 	// printf("%d\n", strnstr(s1, s2, 8));
 	// printf("%d\n", ft_strnstr(s1, s2, 8));
 	// printf("\n");
 	// printf("%d\n", strnstr(s1, s2, 0));
 	// printf("%d\n", ft_strnstr(s1, s2, 0));
 	// printf("\n");
-	// char	*s3 = "how ";
-	// char	*s4 = "howare";
-	// printf("%d\n", strnstr(s3, s4, 4));
-	// printf("%d\n", ft_strnstr(s3, s4, 4));
+
+	char	*s3 = "how ";
+	char	*s4 = "";
+
+	result = ft_strnstr(s3, s4, 3);
+	printf("%s\n", result ? result : "null");
+	printf("\n");
+
+	char	*s5 = "hoa";
+	char	*s6 = "hoan";
+
+	result = ft_strnstr(s5, s6, 2);
+	printf("%s\n", result ? result : "null");
+	printf("\n");
 
 	return (0);
-}
+} */

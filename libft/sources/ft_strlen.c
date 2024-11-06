@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:40:20 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/04 17:33:12 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/06 15:20:50 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	ft_strlen(char *str)
 	int	count;
 
 	count = 0;
-	while (*str++ != '\0')
+	while (*str != '\0')
 	{
 		count++;
+		str++;
 	}
 	return (count);
 }
