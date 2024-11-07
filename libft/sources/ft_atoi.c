@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:28:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/06 18:33:02 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 09:56:33 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
+	int			i;
 	long long	result;
-	int	sign;
+	int			sign;
 
 	i = 0;
 	result = 0;
@@ -38,8 +38,7 @@ int	ft_atoi(const char *nptr)
 		return (-1);
 	else if (result * sign < INT_MIN)
 		return (0);
-	else
-		return (result * sign);
+	return (result * sign);
 }
 
 /* #include <stdio.h>

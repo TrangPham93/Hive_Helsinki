@@ -6,21 +6,21 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:40:20 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/06 15:20:50 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:09:08 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	int	count;
 
 	count = 0;
-	while (*str != '\0')
+	while (*s != '\0')
 	{
 		count++;
-		str++;
+		s++;
 	}
 	return (count);
 }

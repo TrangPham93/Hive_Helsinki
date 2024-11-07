@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:24:16 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/05 16:25:33 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:12:06 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ gcc main_test.c ft_strlen.c -o test_program
 
 int	main(void)
 {
-	printf("%d\n", ft_strlen("visao laithe"));
-	printf("%d\n", strlen("Visao laithe"));
+	printf("%ld\n", ft_strlen("visao laithe"));
+	printf("%ld\n", strlen("Visao laithe"));
 	return (0);
 }

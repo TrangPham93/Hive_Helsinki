@@ -6,21 +6,21 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:45:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/06 17:26:01 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:11:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	int	count;
 
 	count = 0;
-	while (*str != '\0')
+	while (*s != '\0')
 	{
 		count++;
-		str++;
+		s++;
 	}
 	return (count);
 }
@@ -34,7 +34,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	if (*little == '\0')
 		return ((char *)big);
-	little_len = ft_strlen((char *)little);
+	little_len = ft_strlen(little);
 	if (len < little_len)
 		return ((void *)0);
 	while (i + little_len <= len && big[i] != '\0')
@@ -91,4 +91,4 @@ int	main(void)
 	printf("\n");
 
 	return (0);
-} */
+}  */

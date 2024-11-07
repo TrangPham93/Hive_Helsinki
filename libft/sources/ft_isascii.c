@@ -6,13 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:25:07 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/01 18:27:28 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:02:57 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(unsigned char c)
 {
-	if ((c >= 0 && c <= 127))
+	if ((c && c <= 127))
 		return (1);
 	else
 		return (0);
