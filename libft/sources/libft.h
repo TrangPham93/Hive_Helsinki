@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 10:11:11 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/07 11:50:37 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h> 
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h> // check if can use or not
 
 // char functions
 int		ft_isalpha(unsigned char c);
@@ -41,5 +42,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+
+// memory allocation
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif

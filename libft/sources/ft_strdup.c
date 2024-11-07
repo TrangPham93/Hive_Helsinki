@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 16:40:20 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 12:06:57 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/07 11:51:13 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/07 13:04:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,35 @@ size_t	ft_strlen(const char *s)
 	return (count);
 }
 
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*dup;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (dup == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
 /* #include <stdio.h>
-#include <string.h>
 
 int	main(void)
 {
-	printf("%d\n", ft_strlen("visao laithe"));
-	printf("%d\n", strlen("Visao laithe"));
+	// char	*s = "";
+	char	*s = "lkfakldf";
+	char	*a;
 
-	printf("%d\n", ft_strlen(""));
-	printf("%d\n", strlen(""));
-
-	printf("%d\n", ft_strlen("1"));
-	printf("%d\n", strlen("1"));
+	a = ft_strdup(s);
+	printf("%s\n", a ? a : "null");
+	free(a);
 	return (0);
-}
- */
+} */
