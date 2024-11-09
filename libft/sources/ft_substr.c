@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:07:19 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 14:43:17 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/09 12:35:08 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
+
 /* #include <stdio.h>
 
 int	main(void)

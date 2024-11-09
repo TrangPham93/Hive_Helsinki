@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:17:26 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 20:34:56 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/09 12:09:24 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s)
 	return (count);
 }
 
-int	ft_isset(char const *set, char c)
+static int	ft_isset(char const *set, char c)
 {
 	while (*set)
 	{

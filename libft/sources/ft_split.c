@@ -6,19 +6,19 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:26:36 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/08 17:57:01 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/09 14:51:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_countword(const char *s, char c)
+static size_t	ft_countword(const char *s, char c)
 {
 	size_t	count;
 	size_t	word_flag;
 
 	count = 0;
-	word_flag = 0;		
+	word_flag = 0;
 	while (*s)
 	{
 		if (*s == c)
@@ -37,7 +37,8 @@ size_t	ft_countword(const char *s, char c)
 		count++;
 	return (count);
 }
-char	*ft_writeword(const char *s, size_t	start, size_t end)
+
+static char	*ft_writeword(const char *s, size_t	start, size_t end)
 {
 	char	*word;
 	size_t	i;
@@ -58,21 +59,28 @@ char	*ft_writeword(const char *s, size_t	start, size_t end)
 	return (word);
 }
 
- char	**ft_split(char const *s, char c)
+static void	ft_free_words_arr(char **word_arr, size_t count)
+{
+	while (count--)
+		free(word_arr[count]);
+	free(word_arr);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	char	**words_arr;
 	size_t	word_count;
 	size_t	start;
 	size_t	end;
 	size_t	i;
-	
+
 	start = 0;
 	end = 0;
 	i = 0;
 	if (!s)
 		return (NULL);
-	word_count = ft_countword(s, c); 
-	words_arr = malloc((word_count + 1)*sizeof(char *)); //char ** size element pointer
+	word_count = ft_countword(s, c);
+	words_arr = malloc((word_count + 1) * sizeof(char *));
 	if (words_arr == NULL)
 		return (NULL);
 	word_count = 0;
@@ -86,13 +94,8 @@ char	*ft_writeword(const char *s, size_t	start, size_t end)
 			words_arr[word_count] = ft_writeword(s, start, end);
 			if (words_arr[word_count] == NULL)
 			{
-				while (word_count -1 > 0)
-				{
-					free(words_arr[word_count]);
-					word_count--;
-				}
-				free(words_arr);
-				return NULL;
+				ft_free_words_arr(words_arr, word_count);
+				return (NULL);
 			}
 			word_count++;
 		}
@@ -100,8 +103,9 @@ char	*ft_writeword(const char *s, size_t	start, size_t end)
 	}
 	words_arr[word_count] = NULL;
 	return (words_arr);
-} 
-#include <stdio.h>
+}
+
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -119,4 +123,4 @@ int	main(void)
 		i++;
 	}
 	return (0);
-}
+} */
