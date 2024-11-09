@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:56:28 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 17:11:58 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/09 17:07:11 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/09 17:11:34 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL)
 		return ;
@@ -21,12 +21,13 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
+	write(fd, "\n", 1);
 }
 
 /* int	main(void)
 {
 	char	*s = "check";
-	ft_putstr_fd(s, 1);
-	write(1, "\n", 1); // "\n" equivalent to passing &("\n")
+	ft_putendl_fd(s, 1);
 	return (0);
-} */
+}
+ */
