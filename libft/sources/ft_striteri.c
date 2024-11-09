@@ -1,71 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 14:52:32 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 16:20:44 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/09 16:12:05 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/09 16:35:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s != '\0')
-	{
-		count++;
-		s++;
-	}
-	return (count);
-}
-
-static char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 	unsigned int	len;
-	char			*newstr;
 
 	i = 0;
 	if (s == NULL || f == NULL)
-		return (NULL);
+		return ;
 	len = ft_strlen(s);
-	newstr = malloc(len + 1);
-	if (newstr == NULL)
-		return (NULL);
 	while (i < len)
 	{
-		newstr[i] = f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	newstr[len] = '\0';
-	return (newstr);
 }
+/* # include <stdio.h>
 
-/* char	ft_testfunc(unsigned int i, char c)
+static void	ft_test(unsigned int i, char	*s)
 {
 	(void) i;
-	c = c - 32;
-	return (c);
+	*s = *s - 32;
+	return;
 }
-
-#include <stdio.h>
 
 int	main(void)
 {
-	char	*s = "check";
-	char	*newstr;
+	char	s[] = "check";
 
-	newstr = ft_strmapi(s, ft_testfunc);
-	if (newstr)
-	{
-		printf("%s\n", newstr);
-	}
-	free(newstr);
+	printf("Before %s\n", s);
+	ft_striteri(s, ft_test);
+	printf("After %s\n", s);
 	return (0);
 } */
