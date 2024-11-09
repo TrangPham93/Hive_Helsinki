@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 20:37:07 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/09 16:46:28 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h> // check if can use or not
+# include <unistd.h>
 
 // char functions
 int		ft_isalpha(unsigned char c);
