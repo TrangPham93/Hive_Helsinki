@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 13:06:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 13:55:17 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/12 13:46:48 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/12 13:55:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }
 
-#include <stdio.h>
+/* #include "stdio.h"
 
 int	main(void)
 {
 	int a = 5;
 	int b = 7;
-	int c = '\0';
+	int c = 3;
 	t_list	*a_list = ft_lstnew(&a);
 	t_list	*b_list = ft_lstnew(&b);
 	t_list	*new = ft_lstnew(&c);
@@ -44,6 +51,7 @@ int	main(void)
 		printf("%d\n", *(int *)current->content);
 		current = current->next;
 	}
+	printf("size of list %d\n", ft_lstsize(new));
 	while (new)
 	{
 		t_list	*temp = new;
@@ -51,4 +59,4 @@ int	main(void)
 		free(temp);
 	}
 	return (0);
-} 
+}  */
