@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 11:10:41 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/12 13:01:17 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,14 @@ void	ft_putnbr_fd(int n, int fd);
 // function as parameter
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+// list
+typedef struct	s_list
+{
+	void	*content;
+	struct s_list	*next;
+}	t_list;
+
+t_list	*ft_lstnew(void *content);
 
 #endif

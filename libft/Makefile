@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/11 14:09:48 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/12 11:52:42 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,17 @@ fclean: clean
 
 # Rebuild the project
 re: fclean all
+
+# Bonus rules
+# ar -u : If you would like to insert only those
+# of the files you list that are newer than existing members of the same names
+# only use with ar -r
+
+.PHONY: bonus
+bonus: $(BONUS:%.c=%.o): $(BONUS)
+	$(CC) $(CFLAGS) -c $< -o $@
+	ar rcs 
+
 
 
 
