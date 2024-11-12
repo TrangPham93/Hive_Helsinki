@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:06:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 13:55:17 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/12 15:16:16 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
+/* 
 #include <stdio.h>
 
 int	main(void)
@@ -51,4 +51,4 @@ int	main(void)
 		free(temp);
 	}
 	return (0);
-} 
+}  */
