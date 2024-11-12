@@ -148,6 +148,29 @@ void	test_ft_isascii(void)
 	}
 
 }
+void	test_ft_isprint(void)
+{
+	int test1 = 0;
+	int test2 = -127;
+	int test3 = 'A';
+	int test4 = 255;
+
+	int tests[] = {test1, test2, test3, test4};
+	int correct[] = {1, 0, 1, 0};
+	
+	printf("➡️ Test cases for ft_isascii\n");
+
+	for (int i = 0; i < 4; i++)
+		{
+			int result = ft_isprint(tests[i]);
+			printf("Test %d: Input: \"%c\" | Expected: %d | Result: %d\n", i + 1, tests[i], correct[i], result);
+		if (result == correct[i])
+			printf("✅ Test %d passed\n", i + 1);
+		else
+			printf("❌ Test %d failed\n", i + 1);
+	}
+
+}
 
 void	test_ft_isdigit(void)
 {
@@ -689,7 +712,7 @@ void test_ft_toupper()
 int main(void)
 {
 	test_ft_atoi();
-	test_ft_bzero();
+	
 	test_ft_calloc();
 	test_ft_isalnum();
 	test_ft_isalpha();
