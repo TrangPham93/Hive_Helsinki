@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/12 11:52:42 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/12 18:18:06 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,11 @@ SRCS := $(wildcard *.c)
 # Create a list of object file paths in the build directory, corresponding to source file
 OBJECT = $(SRCS:%.c=%.o)
 
+OBJECT_BONUS = 
+
 # Define the library name, .a is a static library, which mean the files are combined at compiling time
 NAME = libft.a
 
-.PHONY: all clean fclean re
 
 # The default target
 all:  $(NAME)
@@ -69,11 +70,11 @@ re: fclean all
 # of the files you list that are newer than existing members of the same names
 # only use with ar -r
 
-.PHONY: bonus
-bonus: $(BONUS:%.c=%.o): $(BONUS)
-	$(CC) $(CFLAGS) -c $< -o $@
-	ar rcs 
-
+# .PHONY: bonus
+# bonus: $(BONUS:%.c=%.o): $(BONUS)
+#	$(CC) $(CFLAGS) -c $< -o $@
+#	ar rcs 
+.PHONY: all clean fclean re
 
 
 

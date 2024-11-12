@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:30:00 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 16:05:31 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/12 16:13:15 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp->next = new;
 }
 /* #include <stdio.h>
+#include "libft.h"
 
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	
+}
 int	main(void)
 {
 	int a = 5;

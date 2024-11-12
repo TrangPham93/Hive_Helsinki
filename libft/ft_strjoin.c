@@ -6,24 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:46:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 18:16:40 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/12 18:23:42 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s != '\0')
-	{
-		count++;
-		s++;
-	}
-	return (count);
-}
 
 char	*ft_strcat(char *dest, char const *source)
 {

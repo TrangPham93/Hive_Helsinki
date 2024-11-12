@@ -6,24 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 14:52:32 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 17:25:06 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/12 18:16:59 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s != '\0')
-	{
-		count++;
-		s++;
-	}
-	return (count);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
