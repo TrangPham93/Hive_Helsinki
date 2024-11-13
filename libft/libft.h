@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 16:14:43 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 21:41:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 # include <stddef.h> 
 # include <stdlib.h>
 # include <limits.h>
-# include <stdint.h> // check if can use or not
+# include <stdint.h>
 # include <unistd.h>
 
-// char functions
-int		ft_isalpha(unsigned char c);
-int		ft_isdigit(unsigned char c);
-int		ft_isalnum(unsigned char c);
-int		ft_isascii(unsigned char c);
-int		ft_isprint(unsigned char c);
+
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *nptr);
 
-// string functions
+
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -51,20 +51,20 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 
-// memory allocation
+
 void	*ft_calloc(size_t nmemb, size_t size);
 
-// print function
+
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-// function as parameter
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-// list
+
 typedef struct s_list
 {
 	void			*content;
