@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:07:19 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 17:40:49 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 21:07:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (NULL);
+		return (ft_strdup(""));
 	if (s_len - start <= len)
 		substr = malloc(s_len - start + 1);
 	else

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:56:19 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 15:22:41 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 21:08:08 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	
 	while (lst->next)
 	{
 		lst = lst->next;

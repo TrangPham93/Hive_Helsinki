@@ -6,29 +6,60 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/12 18:18:06 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/13 21:37:40 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-
-# Define the compiler
 CC = cc
-
-# Define the flags for compiler
 CFLAGS = -Wall -Wextra -Werror
 
-# Find all the .c files in source folder, store their path in the SRCS variable
-SRCS := $(wildcard *.c)
+SRCS := ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_strlen.c \
+		ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memmove.c \
+		ft_strlcat.c \
+		ft_strlcpy.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strncmp.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strnstr.c \
+		ft_atoi.c \
+		ft_calloc.c \
+		ft_strdup.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_split.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
 
-# Create a list of object file paths in the build directory, corresponding to source file
+SRCS_BONUS := ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c \
+
 OBJECT = $(SRCS:%.c=%.o)
-
-OBJECT_BONUS = 
+OBJECT_BONUS = $(SRCS_BONUS:%.c=%.o)
 
 # Define the library name, .a is a static library, which mean the files are combined at compiling time
 NAME = libft.a
-
 
 # The default target
 all:  $(NAME)
@@ -37,7 +68,8 @@ all:  $(NAME)
 # Compile or assemble the source files, but do not link. The linking stage simply is not done.
 # The ultimate output is in the form of an object file for each source file.
 # $@ is the name of the target being generated, and $< the first prerequisite
-# -o file Place the primary output in file file, If -o is not specified, the default is to put an executable file in a.out
+# -o file Place the primary output in file file, 
+# If -o is not specified, the default is to put an executable file in a.out
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ 
@@ -52,11 +84,14 @@ all:  $(NAME)
 #  -rcs rcs can be seen to mean replace, create, sort
 
 $(NAME): $(OBJECT)
-	ar rcs $@ $^
+	ar rcs $(NAME) $^
+
+bonus: $(OBJECT) $(OBJECT_BONUS)
+	ar rcs $(NAME) $^
 
 # Clean: removes the output of other targets
 clean:
-	rm -f $(OBJECT)
+	rm -f $(OBJECT) $(OBJECT_BONUS)
 
 # Fclean: remove all generrated files
 fclean: clean
@@ -70,11 +105,7 @@ re: fclean all
 # of the files you list that are newer than existing members of the same names
 # only use with ar -r
 
-# .PHONY: bonus
-# bonus: $(BONUS:%.c=%.o): $(BONUS)
-#	$(CC) $(CFLAGS) -c $< -o $@
-#	ar rcs 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 
 
