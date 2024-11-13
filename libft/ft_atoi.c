@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:28:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/07 09:56:33 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 17:05:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,39 +40,3 @@ int	ft_atoi(const char *nptr)
 		return (0);
 	return (result * sign);
 }
-
-/* #include <stdio.h>
-#include <stdlib.h>
-
-int	main()
-{
-
-	printf("%d\n", atoi("  -123"));
-	printf("%d\n", ft_atoi("  -123"));
-	printf("\n");
-
-	printf("%d\n", atoi("+123"));
-	printf("%d\n", ft_atoi("+123"));
-	printf("\n");
-
-	printf("%d\n", atoi("   +56"));
-	printf("%d\n", ft_atoi("   +56"));
-	printf("\n");
-
-	printf("%d\n", atoi("  a +56"));
-	printf("%d\n", ft_atoi("  a +56"));
-	printf("\n");
-
-	printf("%d\n", atoi("   -5 6anb"));
-	printf("%d\n", ft_atoi("   -5 6anb"));
-	printf("\n");
-
-	printf("%d\n", atoi("188888888888888888888888888888888"));
-	printf("%d\n", ft_atoi("188888888888888888888888888888888"));
-	printf("\n");
-
-	printf("%d\n", atoi("-188888888888888888888888888888888"));
-	printf("%d\n", ft_atoi("-188888888888888888888888888888888"));
-	printf("\n");
-	
-} */

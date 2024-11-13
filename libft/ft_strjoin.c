@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:46:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 18:23:42 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 17:41:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		ft_strcat(s, s2);
 	return (s);
 }
-
-/* # include <stdio.h>
-
-int	main(void)
-{
-	char	*s1 = "one";
-	char	*s2 = "two";
-	char	*s;
-
-	// char	*s1 = "";
-	// char	*s2 = "tow";
-
-	s = ft_strjoin(s1, s2);
-	printf("%s\n", s ? s : "null");
-	free(s);
-	return (0);
-} */

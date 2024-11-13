@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 15:27:01 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 17:44:24 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -352,17 +352,17 @@ void	test_ft_strrchr(void)
 	char 	*s = "Vi sao lai the";
 	printf("-> TEST STRRCHR:\n");
 	printf("\n");
-	printf("Before strchr  : %s\n", s);
-	printf("After strchr l : %s\n", ft_strrchr(s, 'l'));
-	printf("After strchr l : %s\n", strrchr(s, 'l'));
+	printf("Before strchr     : %s\n", s);
+	printf("After ft_strchr l : %s\n", ft_strrchr(s, 'l'));
+	printf("After strchr l    : %s\n", strrchr(s, 'l'));
 	printf("\n");
-	printf("Before strchr  : %s\n", s);
-	printf("After strchr z : %s\n", ft_strrchr(s, 'z'));
-	printf("After strchr z : %s\n", strrchr(s, 'z'));
+	printf("Before strchr     : %s\n", s);
+	printf("After ft_strchr z : %s\n", ft_strrchr(s, 'z'));
+	printf("After strchr z    : %s\n", strrchr(s, 'z'));
 	printf("\n");
-	printf("Before strchr 	  : %s\n", s);
-	printf("After strchr  null: %s\n", ft_strrchr(s, '\0'));
-	printf("After strchr  null: %s\n", strrchr(s, '\0'));
+	printf("Before strchr 	     : %s\n", s);
+	printf("After ft_strchr  null: %s\n", ft_strrchr(s, '\0'));
+	printf("After strchr  null   : %s\n", strrchr(s, '\0'));
 	printf("\n");
 	
 	char 	*s1 = "Vi sao sai the";
@@ -379,25 +379,25 @@ void	test_ft_strncmp(void)
 	printf("-> TEST STRNCMP:\n");
 	printf("\n");
 	
-	printf("%d\n", strncmp(s1, s2, 3));
-	printf("%d\n", ft_strncmp(s1, s2, 3));
+	printf("strncmp    :%d\n", strncmp(s1, s2, 3));
+	printf("ft_strncmp : %d\n", ft_strncmp(s1, s2, 3));
 	printf("\n");
-	printf("%d\n", strncmp(s1, s2, 4));
-	printf("%d\n", ft_strncmp(s1, s2, 4));
+	printf("strncmp    :%d\n", strncmp(s1, s2, 4));
+	printf("ft_strncmp : %d\n", ft_strncmp(s1, s2, 4));
 	printf("\n");
-	printf("%d\n", strncmp(s1, s2, 5));
-	printf("%d\n", ft_strncmp(s1, s2, 5));
+	printf("strncmp    :%d\n", strncmp(s1, s2, 5));
+	printf("ft_strncmp :%d\n", ft_strncmp(s1, s2, 5));
 	printf("\n");
-	printf("%d\n", strncmp(s1, s2, 8));
-	printf("%d\n", ft_strncmp(s1, s2, 8));
+	printf("strncmp    :%d\n", strncmp(s1, s2, 8));
+	printf("ft_strncmp :%d\n", ft_strncmp(s1, s2, 8));
 	printf("\n");
-	printf("%d\n", strncmp(s1, s2, 0));
-	printf("%d\n", ft_strncmp(s1, s2, 0));
+	printf("strncmp    :%d\n", strncmp(s1, s2, 0));
+	printf("ft_strncmp :%d\n", ft_strncmp(s1, s2, 0));
 	printf("\n");
 	char	*s3 = "how ";
 	char	*s4 = "howare";
-	printf("%d\n", strncmp(s3, s4, 4));
-	printf("%d\n", ft_strncmp(s3, s4, 4));
+	printf("strncmp    :%d\n", strncmp(s3, s4, 4));
+	printf("ft_strncmp : %d\n", ft_strncmp(s3, s4, 4));
 }
 
 void	test_ft_memchr(void)
@@ -405,24 +405,220 @@ void	test_ft_memchr(void)
 	char 	*p = "Vi sao lai the";
 	printf("-> TEST MEMCHR:\n");
 	printf("\n");
-	printf("Beforememchr l: %p\n", p);
-	printf("Aftermemchr  l:%p\n", ft_memchr(p, 'l',15));
-	printf("Aftermemchr  l:%p\n",memchr(p, 'l',15));
+	printf("Before memchr l   : %s\n", p);
+	printf("After ft_memchr  l:%s\n", (unsigned char *)ft_memchr(p, 'l',15));
+	printf("After memchr  l   :%s\n", (unsigned char *)memchr(p, 'l',15));
 	printf("\n");
-	printf("Beforememchr  :%p\n", p);
-	printf("Aftermemchr z: %p\n", ft_memchr(p, 'z',5));
-	printf("Aftermemchr z: %p\n",memchr(p, 'z',5));
+	printf("Before   memchr  :%s\n", p);
+	printf("After ft_memchr z: %s\n", (unsigned char *)ft_memchr(p, 'z',5));
+	printf("After    memchr z: %s\n", (unsigned char *)memchr(p, 'z',5));
 	printf("\n");
-	printf("Beforememchr     :%p\n", p);
-	printf("Aftermemchr null :%p\n", ft_memchr(p, '\0',5));
-	printf("Aftermemchr null :%p\n",memchr(p, '\0',5));
+	printf("Before    memchr     :%s\n", p);
+	printf("After ft_memchr null :%s\n", (unsigned char *)ft_memchr(p, '\0',5));
+	printf("After    memchr null :%s\n", (unsigned char *)memchr(p, '\0',5));
 	printf("\n");
 	char 	*s1 = "Vi sao sai the";
 
-	printf("Beforememchr :%p\n", s1);
-	printf("Aftermemchr p: %p\n", ft_memchr(s1, 'p',5));
-	printf("Aftermemchr p: %p\n",memchr(s1, 'p',5));
+	printf("Before    memchr :%s\n", s1);
+	printf("After ft_memchr p: %s\n", (unsigned char *)ft_memchr(s1, 'p',5));
+	printf("After    memchr p: %s\n", (unsigned char *)memchr(s1, 'p',5));
 
+}
+
+void	test_ft_memcmp(void)
+{
+	char	*s1 = "howb\n";
+	char	*s2 = "howare";
+	
+	printf("-> TEST MEMCMP:\n");
+	printf("\n");
+	
+	printf("%d\n", memcmp(s1, s2, 3));
+	printf("%d\n", ft_memcmp(s1, s2, 3));
+	printf("\n");
+	printf("%d\n", memcmp(s1, s2, 5));
+	printf("%d\n", ft_memcmp(s1, s2, 5));
+	printf("\n");
+	printf("%d\n", memcmp(s1, s2, 6));
+	printf("%d\n", ft_memcmp(s1, s2, 6));
+	printf("\n");
+	printf("%d\n", memcmp(s1, s2, 0));
+	printf("%d\n", ft_memcmp(s1, s2, 0));
+	printf("\n");
+	char	*s3 = "how ";
+	char	*s4 = "howare";
+	printf("%d\n", memcmp(s3, s4, 4));
+	printf("%d\n", ft_memcmp(s3, s4, 4));
+
+} 
+#include <stdio.h>
+#include <string.h>
+
+void	test_ft_strnstr(void)
+{
+	char	*s1 = "NOhowb";
+	char	*s2 = "ho";
+	char	*result;
+	
+	printf("-> TEST STRNSTR:\n");
+	printf("\n");
+	result = ft_strnstr(s1, s2, 7);
+	printf("NOhowb | ho | 7 : %s\n", result ? result : "null");
+	printf("\n");
+
+	result = ft_strnstr(s1, s2, 5);
+	printf("NOhowb | ho | 5 :%s\n", result ? result : "null");
+	printf("\n");
+
+	result = ft_strnstr(s1, s2, 3);
+	printf("NOhowb | ho | 3 : %s\n", result ? result : "null");
+	printf("\n");
+
+	char	*s3 = "how ";
+	char	*s4 = "";
+
+	result = ft_strnstr(s3, s4, 3);
+	printf("how | '' | 3 : %s\n", result ? result : "null");
+	printf("\n");
+
+	char	*s5 = "hoa";
+	char	*s6 = "hoan";
+
+	result = ft_strnstr(s5, s6, 2);
+	printf("hoa | hoan | 2 : %s\n", result ? result : "null");
+	printf("\n");
+}
+
+void	test_ft_atoi(void)
+{
+	printf("-> TEST ATOI:\n");
+	printf("\n");
+
+	printf("atoi    :%d\n", atoi("  -123"));
+	printf("ft_atoi : %d\n", ft_atoi("  -123"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("+123"));
+	printf("ft_atoi : %d\n", ft_atoi("+123"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("   +56"));
+	printf("ft_atoi : %d\n", ft_atoi("   +56"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("  a +56"));
+	printf("ft_atoi : %d\n", ft_atoi("  a +56"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("   -5 6anb"));
+	printf("ft_atoi : %d\n", ft_atoi("   -5 6anb"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("188888888888888888888888888888888"));
+	printf("ft_atoi : %d\n", ft_atoi("188888888888888888888888888888888"));
+	printf("\n");
+
+	printf("atoi    : %d\n", atoi("-188888888888888888888888888888888"));
+	printf("ft_atoi : %d\n", ft_atoi("-188888888888888888888888888888888"));
+	printf("\n");
+	
+}
+
+void	test_ft_calloc(void)
+{
+	char	*s1 = calloc(5, 4);
+	char	*s2 = ft_calloc( 5, 4);
+
+	char	*s3 = calloc(5, 0);
+	char	*s4 = ft_calloc( 5, 0);
+
+	char	*s5 = calloc(0, 3);
+	char	*s6 = ft_calloc( 0, 3);
+
+	printf("-> TEST CALLOC:\n");
+	printf("\n");
+
+	if (s1 && s2 && ft_memcmp(s1, s2, 5*4)== 0)
+		printf("calloc(5, 4) | comparision return : %s\n", "true");
+	else
+		printf("calloc(5, 4) | comparision return : %s\n", "false");
+	printf("\n");
+	if (s3 && s4 && ft_memcmp(s3, s4, 5*0)== 0)
+		printf("calloc(5, 0) | comparision return : %s\n", "true");
+	else
+		printf("calloc(5, 0) | comparision return : %s\n", "false");
+	printf("\n");
+	if (s5 && s6 && ft_memcmp(s5, s6, 0*3)== 0)
+		printf("calloc(0, 3 | comparision return : %s\n", "true");
+	else
+		printf("calloc(0, 3) | comparision return : %s\n", "false");
+	printf("\n");
+	free(s1);
+	free(s2);
+	free(s3);
+	free(s4);
+	free(s5);
+	free(s6);
+}
+
+void	test_ft_strdup(void)
+{
+	char	*s1 = "";
+	char	*s = "lkfakldf";
+	char	*a;
+	
+	a = ft_strdup(s);
+	printf("-> TEST CALLOC:\n");
+	printf("\n");
+	printf("ft_strdup of 'lkfakldf' : %s\n", a ? a : "null");
+	free(a);
+	printf("\n");
+	a = ft_strdup(s1);
+	printf("ft_strdup of '' : %s\n", a ? a : "null");
+	printf("\n");
+}
+void	test_ft_substr(void)
+{
+	char	*s = "one two";
+	char	*a;
+	a = ft_substr(s, 3, 4);
+	char	*s1 = "";
+	char	*a1;
+	a1 = ft_substr(s1, 1, 0);
+	char	*s2 = "one";
+	char	*a2;
+	a2 = ft_substr(s2, 7, 4);
+	
+	printf("-> TEST SUBSTR:\n");
+	printf("\n");
+
+	printf("Str 'one two' | start = 3 | len = 4 : %s\n", a ? a : "null");
+	printf("\n");
+	printf("Str '' | start = 1 | len = 0 : %s\n", a1 ? a1 : "null");
+	printf("\n");
+	printf("Str 'one' | start = 7 | len = 4 : %s\n", a2 ? a2 : "null");
+	printf("\n");
+
+	free(a);
+	free(a1);
+	free(a2);
+}
+
+void	test_ft_strjoin(void)
+{
+	char	*s1 = "one";
+	char	*s2 = "two";
+	char	*s;
+
+	char	*s3 = "";
+	char	*s4 = "tow";
+
+	s = ft_strjoin(s1, s2);
+	printf("Join s1 = one | s2 = two : %s\n", s ? s : "null");
+	free(s);
+	s = ft_strjoin(s3, s4);
+	printf("Join s1 = '' | s2 = tow : %s\n", s ? s : "null");
+	free(s);
 }
 int main(void)
 {
@@ -444,14 +640,19 @@ int main(void)
 	test_ft_strrchr();
 	test_ft_strncmp();
 	test_ft_memchr();
-	// test_ft_memcmp();
-	// test_ft_strnstr();
-	// test_ft_atoi();
+	test_ft_memcmp();
+	test_ft_strnstr();
+	test_ft_atoi();
+	test_ft_calloc();
+	test_ft_strdup();
+	test_ft_substr();
+	test_ft_strjoin();
+	
 	// test_ft_strmapi();
 	// test_ft_strncmp();
 	// test_ft_strnstr();
 	
 	// test_ft_strtrim();
-	// test_ft_substr();
+	
 	return(0);
 }

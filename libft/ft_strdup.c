@@ -6,11 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:51:13 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 18:22:50 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 17:26:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"                                                                                                                                
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -31,17 +31,3 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-
-/* #include <stdio.h>
-
-int	main(void)
-{
-	// char	*s = "";
-	char	*s = "lkfakldf";
-	char	*a;
-
-	a = ft_strdup(s);
-	printf("%s\n", a ? a : "null");
-	free(a);
-	return (0);
-} */
