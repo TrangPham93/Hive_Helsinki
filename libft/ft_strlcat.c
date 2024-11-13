@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:44 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/05 18:02:26 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:44:32 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		src_s++;
 	return (dst_s + src_s);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char d[20] = "";
-	char s[20]	= "HAKHA";
-
-	char d_test[20] = "";
-	char s_test[20]	= "HAKHA";
-
-	// printf("%d\n",strlcat(d,s,0));
-	// printf("%d\n",ft_strlcat(d_test,s_test,0));
-	// printf("%d\n",strlcat(d,s,2));
-	// printf("%d\n",ft_strlcat(d_test,s_test,2));
-	// printf("%d\n",strlcat(d,s,5));
-	// printf("%d\n",ft_strlcat(d_test,s_test,5));
-
-	// char d[20] = "Vis";
-	// char s[20]	= "";
-
-	// char d_test[20] = "Vis";
-	// char s_test[20]	= "";
-
-	printf("%d\n",strlcat(d,s,8));
-	printf("%d\n",ft_strlcat(d_test,s_test,8));
-} */

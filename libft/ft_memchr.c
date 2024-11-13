@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
@@ -27,30 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return ((void *)0);
 }
-/* #include <string.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char 	*p = "Vi sao lai the";
-
-	printf("Beforememchr %p\n", p);
-	printf("Aftermemchr %p\n", ft_memchr(p, 'l',15));
-	printf("Aftermemchr %p\n",memchr(p, 'l',15));
-	printf("\n");
-	printf("Beforememchr %p\n", p);
-	printf("Aftermemchr %p\n", ft_memchr(p, 'z',5));
-	printf("Aftermemchr %p\n",memchr(p, 'z',5));
-	printf("\n");
-	printf("Beforememchr %p\n", p);
-	printf("Aftermemchr %p\n", ft_memchr(p, '\0',5));
-	printf("Aftermemchr %p\n",memchr(p, '\0',5));
-	printf("\n");
-	char 	*s1 = "Vi sao sai the";
-
-	printf("Beforememchr %p\n", s1);
-	printf("Aftermemchr %p\n", ft_memchr(s1, 'p',5));
-	printf("Aftermemchr %p\n",memchr(s1, 'p',5));
-
-	return (0);
-} */

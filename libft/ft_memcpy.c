@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:29:43 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/04 16:50:31 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:28:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest_p);
 }
-/*
-#include <string.h>
-#include <stdio.h>
-int	main(void)
-{
-	char	dest[20] = "or longer";
-	char	src[20] = "noliin";
-	char	test_dest[20] = "or longer";
-	char	test_src[20] = "noliin";
-
-	printf("%s\n", memcpy(src + 2, src, 7));
-	printf("%s\n", ft_memcpy(test_src + 2, test_src, 7));
-	// This overlapping causes undefined behavior because:
-    // You're modifying the source data as you're reading from it.
-    // You're writing beyond the end of the originally allocated memory.
-
-	
-	// printf("%s\n", memcpy(dest, src, 2));
-	// printf("%s\n", ft_memcpy(test_dest, test_src, 2));
-
-	// printf("%s\n", memcpy(dest, src, 4));
-	// printf("%s\n", ft_memcpy(test_dest, test_src, 4));
-	// 	// printf doesn't print after first encounter with null
-
-	// printf("%s\n", memcpy(dest, src, 0));
-	// printf("%s\n", ft_memcpy(test_dest, test_src, 0));
-
-	
-
-	return (0);
-}
-*/

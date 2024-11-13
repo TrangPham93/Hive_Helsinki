@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:09:44 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 18:17:28 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:56:27 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,3 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
-
-/* #include <ctype.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%c\n", toupper('c'));
-	printf("%c\n",ft_toupper('c'));
-
-	printf("%c\n", toupper('K'));
-	printf("%c\n",ft_toupper('K'));
-
-	printf("%s\n", toupper('\0'));
-	printf("%s\n",ft_toupper('\0'));
-	
-	printf("%d\n", toupper(5));
-	printf("%d\n",ft_toupper(5));
-
-	printf("%c\n", toupper('d'));
-	printf("%c\n",ft_toupper('d'));
-
-	return (0);
-
-} */
