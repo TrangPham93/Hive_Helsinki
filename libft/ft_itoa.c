@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:38:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 15:18:18 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 20:00:45 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,3 @@ char	*ft_itoa(int n)
 	}
 	return (s);
 }
-/* #include <stdio.h>
-
-int	main(void)
-{
-	
-	printf("%s\n", ft_itoa(-123));
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(1));
-	printf("%s\n", ft_itoa(-123));
-	printf("%s\n", ft_itoa(-4));
-	printf("%s\n", ft_itoa(INT_MAX));
-	printf("%s\n", ft_itoa(INT_MIN));
-
-
-	return (0);
-} */

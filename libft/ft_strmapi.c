@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 14:52:32 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 18:16:59 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 20:08:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	newstr[len] = '\0';
 	return (newstr);
 }
-
-/* char	ft_testfunc(unsigned int i, char c)
-{
-	(void) i;
-	c = c - 32;
-	return (c);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*s = "check";
-	char	*newstr;
-
-	newstr = ft_strmapi(s, ft_testfunc);
-	if (newstr)
-	{
-		printf("%s\n", newstr);
-	}
-	free(newstr);
-	return (0);
-} */

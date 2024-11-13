@@ -6,13 +6,9 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:17:26 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/11 18:29:48 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 19:34:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* 
-ft_isset() return 0 if not in set, return 1 if in set
-*/
 
 #include "libft.h"
 
@@ -48,23 +44,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result[end - start] = '\0';
 	return (result);
 }
-
-/* #include <stdio.h>
-
-int	main(void)
-{
-	char	*s1 = "bacHellocb";
-	char	*s2 = "abc";
-
-	// char	*s1 = "baccb";
-	// char	*s2 = "abc";
-
-	// char	*s1 = "";
-	// char	*s2 = "abc";
-
-	char	*a;
-
-	a = ft_strtrim(s1, s2);
-	printf("%s\n", a ? a : "null");
-	return (0);
-} */

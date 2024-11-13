@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:56:28 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 17:11:58 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 20:25:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,3 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-
-/* int	main(void)
-{
-	char	*s = "check";
-	ft_putstr_fd(s, 1);
-	write(1, "\n", 1); // "\n" equivalent to passing &("\n")
-	return (0);
-} */

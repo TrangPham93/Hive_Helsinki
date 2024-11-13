@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 17:44:24 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 20:38:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -568,7 +568,7 @@ void	test_ft_strdup(void)
 	char	*a;
 	
 	a = ft_strdup(s);
-	printf("-> TEST CALLOC:\n");
+	printf("-> TEST STRDUP:\n");
 	printf("\n");
 	printf("ft_strdup of 'lkfakldf' : %s\n", a ? a : "null");
 	free(a);
@@ -604,6 +604,7 @@ void	test_ft_substr(void)
 	free(a2);
 }
 
+
 void	test_ft_strjoin(void)
 {
 	char	*s1 = "one";
@@ -613,13 +614,176 @@ void	test_ft_strjoin(void)
 	char	*s3 = "";
 	char	*s4 = "tow";
 
+	printf("-> TEST STRJOIN:\n");
+	printf("\n");
+
 	s = ft_strjoin(s1, s2);
 	printf("Join s1 = one | s2 = two : %s\n", s ? s : "null");
 	free(s);
 	s = ft_strjoin(s3, s4);
 	printf("Join s1 = '' | s2 = tow : %s\n", s ? s : "null");
 	free(s);
+	printf("\n");
 }
+
+void	test_ft_strtrim(void)
+{
+	char	*s1 = "bacHellocb";
+	char	*s2 = "abc";
+	char	*s3 = "baccb";
+	char	*s4 = "abc";
+	char	*s5 = "";
+	char	*s6 = "abc";
+	char	*a;
+
+	printf("-> TEST STRTRIM:\n");
+	printf("\n");
+
+	a = ft_strtrim(s1, s2);
+	printf("'bacHellocb' | 'abc' 	: %s\n", a ? a : "null");
+	printf("\n");
+	free(a);
+	a = ft_strtrim(s3, s4);
+	printf("'baccb' | 'abc' 	: %s\n", a ? a : "null");
+	printf("\n");
+	free(a);
+	a = ft_strtrim(s5, s6);
+	printf("'' | 'abc' 		: %s\n", a ? a : "null");
+	printf("\n");
+	free(a);
+
+}
+
+void	test_ft_split(void)
+{
+	char	*s = "---split-this---k--nhi---";
+	char	**a;
+	int			i;
+
+	printf("-> TEST SPLIT:\n");
+	printf("\n");
+
+	i = 0;
+	a = ft_split(s,'-');
+	while (a[i])
+	{
+		printf("split '---split-this---k--nhi---' | '-'	: %s\n", a[i]);
+		i++;
+	}
+	printf("\n");
+	a = ft_split(s,'+');
+	i = 0;
+	while (a[i])
+	{
+		printf("split '---split-this---k--nhi---' | '+'	: %s\n", a[i]);
+		free(a[i]);
+		i++;
+	}
+	free(a);
+	printf("\n");
+} 
+
+void	test_ft_itoa(void)
+{
+	printf("-> TEST ITOA:\n");
+	printf("\n");
+
+	printf("test 1 '-123'	:%s\n", ft_itoa(-123));
+	printf("test 2 '0'	:%s\n", ft_itoa(0));
+	printf("test 3 '1'	:%s\n", ft_itoa(1));
+	printf("test 4 '-4'	:%s\n", ft_itoa(-4));
+	printf("test 5 '2147483647'	:%s\n", ft_itoa(INT_MAX));
+	printf("test 6 '-2147483648'	:%s\n", ft_itoa(INT_MIN));
+	printf("\n");
+
+}
+static char	ft_testfunc(unsigned int i, char c)
+{
+	(void) i;
+	c = c - 32;
+	return (c);
+}
+
+void	test_ft_strmapi(void)
+{
+	printf("-> TEST STRMAPI:\n");
+	printf("\n");
+
+	char	*s = "check";
+	char	*newstr;
+
+	newstr = ft_strmapi(s, ft_testfunc);
+	if (newstr)
+		printf("test string 'check'	: %s\n", newstr);
+	free(newstr);
+	printf("\n");
+}
+static void	ft_test(unsigned int i, char	*s)
+{
+	(void) i;
+	*s = *s - 32;
+	return;
+}
+void	test_ft_striteri(void)
+{
+	printf("-> TEST STRITERI:\n");
+	printf("\n");
+
+	char	s[] = "check";
+
+	printf("Before %s\n", s);
+	ft_striteri(s, ft_test);
+	printf("After %s\n", s);
+	printf("\n");
+} 
+void	test_ft_putchar_ft(void)
+{
+	printf("-> TEST FT_PUTCHAR_FT:\n");
+	printf("\n");
+
+	ft_putchar_fd('a', 1);
+	ft_putchar_fd('\n', 1);
+	printf("\n");
+}
+void	test_ft_putstr_fd(void)
+{
+	char	*s = "check";
+	
+	printf("-> TEST FT_PUTSTRING_FD:\n");
+	printf("\n");
+	ft_putstr_fd(s, 1);
+	write(1, "\n", 1);
+
+}
+void	test_ft_putendl_fd(void)
+{
+	char	*s = "check";
+
+	printf("-> TEST FT_PUTENDL_FD:\n");
+	printf("\n");
+	ft_putendl_fd(s, 1);
+
+}
+void	test_ft_putnbr_fd(void)
+{
+	printf("-> TEST FT_PUTNBR_FD:\n");
+	printf("\n");
+
+	printf("print '-223'	:\n");
+	ft_putnbr_fd(-223, 1);
+	printf("\n");
+	printf("print '-1547821'	:\n");
+	ft_putnbr_fd(-1547821, 1);
+	printf("\n");
+	printf("print '0'	:\n");
+	ft_putnbr_fd(0, 1);
+	printf("\n");
+	printf("print '1664665'	:\n");
+	ft_putnbr_fd(1664665, 1);
+	printf("\n");
+
+}
+
 int main(void)
 {
 	test_ft_isalpha();
@@ -647,12 +811,14 @@ int main(void)
 	test_ft_strdup();
 	test_ft_substr();
 	test_ft_strjoin();
-	
-	// test_ft_strmapi();
-	// test_ft_strncmp();
-	// test_ft_strnstr();
-	
-	// test_ft_strtrim();
+	test_ft_strtrim();
+	test_ft_split();
+	test_ft_itoa();
+	test_ft_strmapi();
+	test_ft_striteri();
+	test_ft_putchar_ft();
+	test_ft_putstr_fd();
+	test_ft_putnbr_fd();
 	
 	return(0);
 }

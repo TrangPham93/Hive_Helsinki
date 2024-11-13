@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:26:36 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/12 11:09:26 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 19:59:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	word_count = 0;
 	word_count = ft_countword(s, c);
 	words_arr = malloc((word_count + 1) * sizeof(char *));
 	if (words_arr == NULL)
@@ -99,23 +98,3 @@ char	**ft_split(char const *s, char c)
 	words_arr = ft_process(s, c, i, words_arr);
 	return (words_arr);
 }
-
-/* #include <stdio.h>
-
-int	main(void)
-{
-	// char	*s = "-split-this----k--nhi";
-	char	*s = "---split-this---k--nhi---";
-	char	**a;
-	int	i;
-
-	i = 0;
-	a = ft_split(s,'\0');
-	
-	while (a[i])
-	{
-		printf("%s\n", a[i]);
-		i++;
-	}
-	return (0);
-}  */

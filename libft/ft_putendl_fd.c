@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:07:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/09 17:11:34 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/13 20:29:25 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-
-/* int	main(void)
-{
-	char	*s = "check";
-	ft_putendl_fd(s, 1);
-	return (0);
-}
- */
