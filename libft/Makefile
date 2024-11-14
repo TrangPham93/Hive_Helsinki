@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/14 15:18:29 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/14 15:40:08 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,9 @@ fclean: clean
 # Rebuild the project
 re: fclean all
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJECT) $(OBJECT_BONUS)
 # Bonus rules
 # ar -u : If you would like to insert only those
 # of the files you list that are newer than existing members of the same names

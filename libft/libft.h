@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:54:33 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/14 11:29:24 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 18:34:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <unistd.h>
+# include <stdio.h> // remember to remove
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

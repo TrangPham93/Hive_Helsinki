@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:56:19 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 14:43:33 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 16:03:40 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*d;
 	const unsigned char	*s;
 
+	if (!dest && !src)
+		return (dest);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	count = 0;

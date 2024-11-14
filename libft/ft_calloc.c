@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:26:05 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/14 15:18:46 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 17:43:30 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	char	*p;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	if (size > 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
 	p = malloc(nmemb * size);

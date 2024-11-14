@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 21:59:35 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 18:51:33 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,8 +279,6 @@ void	test_ft_strlcpy(void)
 	// (The value returned is always the size of string src 
 	// regardless of how many characters are copied.)
 } 
-#include <ctype.h>
-#include <stdio.h>
 
 void	test_ft_toupper(void)
 {
@@ -451,8 +449,6 @@ void	test_ft_memcmp(void)
 	printf("%d\n", ft_memcmp(s3, s4, 4));
 
 } 
-#include <stdio.h>
-#include <string.h>
 
 void	test_ft_strnstr(void)
 {
@@ -470,7 +466,7 @@ void	test_ft_strnstr(void)
 	printf("NOhowb | ho | 5 :%s\n", result ? result : "null");
 	printf("\n");
 
-	result = ft_strnstr(s1, s2, 3);
+	result = ft_strnstr(s1, s2, 0);
 	printf("NOhowb | ho | 3 : %s\n", result ? result : "null");
 	printf("\n");
 
@@ -783,39 +779,157 @@ void	test_ft_putnbr_fd(void)
 	printf("\n");
 
 }
-// void	test_ft_lstsize_bonus(void)
-// {
-// 	int a = 5;
-// 	int b = 7;
-// 	int c = 3;
-// 	t_list	*a_list = ft_lstnew(&a);
-// 	t_list	*b_list = ft_lstnew(&b);
-// 	t_list	*new = ft_lstnew(&c);
-// 	t_list	*current;
 
-// 	if (!a_list || !b_list || !new)
-// 	{
-// 		printf("memory allocation failed\n");
-// 		return (1);
-// 	}
+void	test_ft_lstnew(void)
+{
+	int a = 5;
+	int b = 7;
+
+	t_list	*a_list = ft_lstnew(&a);
+	t_list	*b_list = ft_lstnew(&b);
+	t_list	*current;
+
+	if (!a_list || !b_list)
+	{
+		printf("memory allocation failed\n");
+	}
 	
-// 	a_list ->next = b_list;
-// 	current = new;
-// 	ft_lstadd_front(&a_list, new);
-// 	while (current)
-// 	{
-// 		printf("%d\n", *(int *)current->content);
-// 		current = current->next;
-// 	}
-// 	printf("size of list %d\n", ft_lstsize(new));
-// 	while (new)
-// 	{
-// 		t_list	*temp = new;
-// 		new = new->next;
-// 		free(temp);
-// 	}
-// 	return (0);
-// }
+	a_list ->next = b_list;
+	current = a_list;
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
+	free(a_list);
+	free(b_list);
+
+} 
+void	test_ft_lstsize(void)
+{
+	int a = 5;
+	int b = 7;
+	int c = '\0';
+	t_list	*a_list = ft_lstnew(&a);
+	t_list	*b_list = ft_lstnew(&b);
+	t_list	*new = ft_lstnew(&c);
+	t_list	*current;
+
+	if (!a_list || !b_list || !new)
+	{
+		printf("memory allocation failed\n");
+	}
+	a_list ->next = b_list;
+	ft_lstadd_front(&a_list, new);
+	current = ft_lstlast(new);
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content); // print only the last content
+	}
+	while (new)
+	{
+		t_list	*temp = new;
+		new = new->next;
+		free(temp);
+	}
+
+} 
+void	test_ft_lstadd_front(void)
+{
+	int a = 5;
+	int b = 7;
+	int c = 3;
+	t_list	*a_list = ft_lstnew(&a);
+	t_list	*b_list = ft_lstnew(&b);
+	t_list	*new = ft_lstnew(&c);
+	t_list	*current;
+
+	if (!a_list || !b_list || !new)
+	{
+		printf("memory allocation failed\n");
+	}
+	
+	a_list ->next = b_list;
+	current = new;
+	ft_lstadd_front(&a_list, new);
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
+	printf("size of list %d\n", ft_lstsize(new));
+	while (new)
+	{
+		t_list	*temp = new;
+		new = new->next;
+		free(temp);
+	}
+
+}
+void test_ft_lstadd_back(void)
+{
+	int a = 5;
+	int b = 7;
+	int c = 9;
+	t_list	*a_list = ft_lstnew(&a);
+	t_list	*b_list = ft_lstnew(&b);
+	t_list	*new = ft_lstnew(&c);
+	t_list	*current;
+
+	if (!a_list || !b_list || !new)
+	{
+		printf("memory allocation failed\n");
+	}
+	
+	a_list ->next = b_list;
+	current = a_list;
+	ft_lstadd_back(&a_list, new);
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
+	while (a_list)
+	{
+		t_list	*temp = a_list;
+		a_list = a_list->next;
+		free(temp);
+	}
+
+}
+
+void	test_ft_lstdelone(void)
+{
+	int *a = malloc(sizeof(int));
+	int *b = malloc(sizeof(int));
+	int *c = malloc(sizeof(int));
+
+	if (!a | !b || !c)
+	{
+		printf("memory allocation failed\n");
+	}
+	*a = 5;
+	*b = 7;
+	*c = '\0';
+	t_list	*a_list = ft_lstnew(a);
+	t_list	*b_list = ft_lstnew(b);
+	t_list	*new = ft_lstnew(c);
+	if (!a_list || !b_list || !new)
+	{
+		printf("list allocation failed\n");
+		free(a);
+		free(b);
+		free(c);
+	}
+	a_list ->next = b_list;
+	b_list ->next = new;
+	ft_lstdelone(b_list, del_f);
+	while (a_list)
+	{
+		printf("%d\n", *(int *)a_list->content);
+		a_list = a_list->next;
+	}
+}
 
 int main(void)
 {
@@ -852,6 +966,11 @@ int main(void)
 	test_ft_putchar_ft();
 	test_ft_putstr_fd();
 	test_ft_putnbr_fd();
-	
+	test_ft_lstnew();
+	test_ft_lstsize();
+	// test_ft_lstlast();
+	test_ft_lstadd_front();
+	test_ft_lstadd_back();
+	test_ft_lstdelone();
 	return(0);
 }
