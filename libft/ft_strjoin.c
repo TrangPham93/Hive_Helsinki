@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:46:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 20:41:46 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:09:07 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 
 	total_len = 0;
-	if (s1 != NULL)
+	if (s1)
 		total_len += ft_strlen(s1);
-	if (s2 != NULL)
+	if (s2)
 		total_len += ft_strlen(s2);
 	total_len += 1;
 	if (total_len == 1)
@@ -49,7 +49,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (s);
 	}
 	s = malloc(total_len);
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	s[0] = '\0';
 	if (s1)

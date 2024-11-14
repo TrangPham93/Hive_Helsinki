@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:30:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 15:07:25 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:03:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ char	*ft_strrchr(const char *s, int c)
 	const char	*p;
 
 	p = ((void *)0);
-	while (*s != '\0')
+	while (*s)
 	{
 		if (*s == c)
 			p = s;

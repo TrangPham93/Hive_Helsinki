@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:29:43 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 14:28:19 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:11:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	dest_p = (unsigned char *)dest;
 	src_p = (unsigned char *)src;
 	count = 0;
-	if (dest == NULL && src == NULL)
+	if (!dest && !src)
 		return (NULL);
 	while (count < n)
 	{

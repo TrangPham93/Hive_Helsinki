@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:38:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 20:00:45 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 10:46:07 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 
 	len = ft_count_number(n);
 	s = malloc(len + 1);
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	s[len] = '\0';
 	if (n == 0)

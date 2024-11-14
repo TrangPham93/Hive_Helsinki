@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:17:26 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 19:34:52 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/14 11:02:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 
 	start = 0;
-	if (s1 == NULL)
+	if (!s1)
 		return (NULL);
 	end = ft_strlen(s1);
 	while (ft_isset(set, s1[start]))
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while ((end > start) && ft_isset(set, s1[end - 1]))
 		end--;
 	result = malloc(end - start + 1);
-	if (result == NULL)
+	if (!result)
 		return (NULL);
 	ft_memmove(result, s1 + start, end - start);
 	result[end - start] = '\0';
