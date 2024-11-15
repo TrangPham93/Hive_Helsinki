@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/15 12:00:12 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/15 14:23:33 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1090,6 +1090,72 @@ void	test_ft_lstiter(void)
 		a_list = a_list->next;
 	}
 	
+}
+static void	*lstmap_f(void	*content)
+{
+	int	*new_content = malloc(sizeof(size_t));
+	if (!new_content)
+		return (NULL);
+	*new_content = *(int	*)content + 20;
+	return(new_content);
+}
+void	test_ft_lstmap(void)
+{
+	int	*a = malloc(sizeof(int));
+	int	*b = malloc(sizeof(int));
+	int	*c = malloc(sizeof(int));
+	
+	printf("-> TEST FT_LSTMAP:\n");
+	printf("\n");
+	
+	if (!a || !b || !c)
+	{
+		printf("content failed\n");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
+	}
+	*a = 3;
+	*b = 5;
+	*c = 7;
+
+	t_list	*a_list = ft_lstnew(a);
+	t_list	*b_list = ft_lstnew(b);
+	t_list	*c_list = ft_lstnew(c);
+	if (!a_list || !b_list || !c_list)
+	{
+		printf("Node creation failed\n");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
+		free(a_list);
+		free(b_list);
+		free(c_list);
+	}
+
+	ft_lstadd_back(&a_list, b_list);
+	ft_lstadd_back(&a_list, c_list);
+	
+	t_list	*temp = a_list;
+	while (temp)
+	{
+		printf("Print node content: %d\n", *(int*)temp->content);
+		temp = temp->next;
+	}
+	
+	t_list	*newlst;
+	newlst = ft_lstmap(a_list, lstmap_f, del_f);
+	// ft_lstiter(a_list, lstmap_f);
+	// printf("\n");
+	while (newlst)
+	{
+		printf("After applying function: %d\n", *(int*)newlst->content);
+		newlst = newlst->next;
+	}
+	ft_lstclear(&newlst, del_f);
+	ft_lstclear(&a_list, del_f);
 }
 int main(void)
 {
