@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/15 11:18:05 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/15 12:00:12 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -802,15 +802,14 @@ void	test_ft_lstnew(void)
 	current = a_list;
 	while (current)
 	{
-		printf("%d\n", *(int *)current->content);
+		printf("Print node's content :%d\n", *(int *)current->content);
 		current = current->next;
-		printf("\n");
 	}
 	free(a_list);
 	free(b_list);
-
+	printf("\n");
 } 
-void	test_ft_lstsize(void)
+void	test_ft_lstlast(void)
 {
 	int a = 5;
 	int b = 7;
@@ -832,7 +831,7 @@ void	test_ft_lstsize(void)
 	current = ft_lstlast(new);
 	while (current)
 	{
-		printf("%d\n", *(int *)current->content); // print only the last content
+		printf("Print the last node's content :%d\n", *(int *)current->content);
 		current = current->next;
 	}
 	while (new)
@@ -865,7 +864,7 @@ void	test_ft_lstadd_front(void)
 	ft_lstadd_front(&a_list, new);
 	while (current)
 	{
-		printf("%d\n", *(int *)current->content);
+		printf("Print node after add front :%d\n", *(int *)current->content);
 		current = current->next;
 	}
 	printf("size of list %d\n", ft_lstsize(new));
@@ -901,7 +900,7 @@ void test_ft_lstadd_back(void)
 	ft_lstadd_back(&a_list, new);
 	while (current)
 	{
-		printf("%d\n", *(int *)current->content);
+		printf("Print node after add back :%d\n", *(int *)current->content);
 		current = current->next;
 		printf("\n");
 	}
@@ -911,6 +910,30 @@ void test_ft_lstadd_back(void)
 		a_list = a_list->next;
 		free(temp);
 	}
+	printf("\n");
+}
+void	test_ft_lstsize(void)
+{
+	int a = 5;
+	int b = 7;
+	int c = 9;
+	t_list	*a_list = ft_lstnew(&a);
+	t_list	*b_list = ft_lstnew(&b);
+	t_list	*new = ft_lstnew(&c);
+	t_list	*current;
+
+
+	printf("-> TEST FT_LSTSIZE:\n");
+	printf("\n");
+	if (!a_list || !b_list || !new)
+	{
+		printf("memory allocation failed\n");
+	}
+	
+	a_list ->next = b_list;
+	current = a_list;
+	ft_lstadd_back(&a_list, new);
+	printf("print size of list: %d\n", ft_lstsize(current));
 	printf("\n");
 }
 static void	del_f(void	*content)
@@ -958,7 +981,7 @@ void	test_ft_lstdelone(void)
 	a_list->next = c_list;
 	while (a_list)
 	{
-		printf("%d\n", *(int *)a_list->content);
+		printf("Print node before lstdelone: %d\n", *(int *)a_list->content);
 		a_list = a_list->next;
 		printf("\n");
 	}
@@ -997,19 +1020,77 @@ void	test_ft_lstclear(void)
 
 	while (temp)
 	{
-		printf("%d\n", *(int *)temp->content);
+		printf("Print node before lstclear: %d\n", *(int *)temp->content);
 		temp = temp->next;
 	}
 
 	ft_lstclear(&a_list, del_f);
 	if (!a_list)
-		printf("list is empty\n");
+		printf("after clear, list is empty\n");
 	else
-		printf("list is not empty\n");
+		printf("after clear, list is not empty\n");
 	printf("\n");
 
 }
+void	iter_f(void	*content)
+{
+	*(int	*)content += 20;
+}
 
+void	test_ft_lstiter(void)
+{
+	int	*a = malloc(sizeof(int));
+	int	*b = malloc(sizeof(int));
+	int	*c = malloc(sizeof(int));
+	
+	printf("-> TEST FT_LSTITER:\n");
+	printf("\n");
+	
+	if (!a || !b || !c)
+	{
+		printf("content failed\n");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
+	}
+	*a = 3;
+	*b = 5;
+	*c = 7;
+
+	t_list	*a_list = ft_lstnew(a);
+	t_list	*b_list = ft_lstnew(b);
+	t_list	*c_list = ft_lstnew(c);
+	if (!a_list || !b_list || !c_list)
+	{
+		printf("Node creation failed\n");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
+		free(a_list);
+		free(b_list);
+		free(c_list);
+	}
+
+	ft_lstadd_back(&a_list, b_list);
+	ft_lstadd_back(&a_list, c_list);
+	
+	t_list	*temp = a_list;
+	while (temp)
+	{
+		printf("Print node content: %d\n", *(int*)temp->content);
+		temp = temp->next;
+	}
+	ft_lstiter(a_list, iter_f);
+	printf("\n");
+	while (a_list)
+	{
+		printf("After applying function: %d\n", *(int*)a_list->content);
+		a_list = a_list->next;
+	}
+	
+}
 int main(void)
 {
 	test_ft_isalpha();
@@ -1047,10 +1128,11 @@ int main(void)
 	test_ft_putnbr_fd();
 	test_ft_lstnew();
 	test_ft_lstsize();
-	// test_ft_lstlast();
+	test_ft_lstlast();
 	test_ft_lstadd_front();
 	test_ft_lstadd_back();
 	test_ft_lstdelone();
 	test_ft_lstclear();
+	test_ft_lstiter();
 	return(0);
 }
