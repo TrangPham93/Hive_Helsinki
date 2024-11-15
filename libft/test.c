@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/14 18:51:33 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/15 11:18:05 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -785,6 +785,9 @@ void	test_ft_lstnew(void)
 	int a = 5;
 	int b = 7;
 
+	printf("-> TEST FT_LSTNEW:\n");
+	printf("\n");
+
 	t_list	*a_list = ft_lstnew(&a);
 	t_list	*b_list = ft_lstnew(&b);
 	t_list	*current;
@@ -792,6 +795,7 @@ void	test_ft_lstnew(void)
 	if (!a_list || !b_list)
 	{
 		printf("memory allocation failed\n");
+		printf("\n");
 	}
 	
 	a_list ->next = b_list;
@@ -800,6 +804,7 @@ void	test_ft_lstnew(void)
 	{
 		printf("%d\n", *(int *)current->content);
 		current = current->next;
+		printf("\n");
 	}
 	free(a_list);
 	free(b_list);
@@ -815,6 +820,9 @@ void	test_ft_lstsize(void)
 	t_list	*new = ft_lstnew(&c);
 	t_list	*current;
 
+	printf("-> TEST FT_LSTSIZE:\n");
+	printf("\n");
+
 	if (!a_list || !b_list || !new)
 	{
 		printf("memory allocation failed\n");
@@ -825,6 +833,7 @@ void	test_ft_lstsize(void)
 	while (current)
 	{
 		printf("%d\n", *(int *)current->content); // print only the last content
+		current = current->next;
 	}
 	while (new)
 	{
@@ -844,6 +853,8 @@ void	test_ft_lstadd_front(void)
 	t_list	*new = ft_lstnew(&c);
 	t_list	*current;
 
+	printf("-> TEST FT_LSTADD_FRONT:\n");
+	printf("\n");
 	if (!a_list || !b_list || !new)
 	{
 		printf("memory allocation failed\n");
@@ -876,9 +887,13 @@ void test_ft_lstadd_back(void)
 	t_list	*new = ft_lstnew(&c);
 	t_list	*current;
 
+
+	printf("-> TEST FT_LSTADD_BACK:\n");
+	printf("\n");
 	if (!a_list || !b_list || !new)
 	{
 		printf("memory allocation failed\n");
+		printf("\n");
 	}
 	
 	a_list ->next = b_list;
@@ -888,6 +903,7 @@ void test_ft_lstadd_back(void)
 	{
 		printf("%d\n", *(int *)current->content);
 		current = current->next;
+		printf("\n");
 	}
 	while (a_list)
 	{
@@ -895,40 +911,103 @@ void test_ft_lstadd_back(void)
 		a_list = a_list->next;
 		free(temp);
 	}
-
+	printf("\n");
 }
-
+static void	del_f(void	*content)
+{
+	free(content);
+}
 void	test_ft_lstdelone(void)
 {
 	int *a = malloc(sizeof(int));
 	int *b = malloc(sizeof(int));
 	int *c = malloc(sizeof(int));
 
-	if (!a | !b || !c)
+	printf("-> TEST FT_LSTDELONE:\n");
+	printf("\n");
+
+	if (!a || !b || !c)
 	{
 		printf("memory allocation failed\n");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
 	}
 	*a = 5;
 	*b = 7;
 	*c = '\0';
 	t_list	*a_list = ft_lstnew(a);
 	t_list	*b_list = ft_lstnew(b);
-	t_list	*new = ft_lstnew(c);
-	if (!a_list || !b_list || !new)
+	t_list	*c_list = ft_lstnew(c);
+	if (!a_list || !b_list || !c_list)
 	{
 		printf("list allocation failed\n");
+		printf("\n");
 		free(a);
 		free(b);
 		free(c);
+		free(a_list);
+		free(b_list);
+		free(c_list);
 	}
 	a_list ->next = b_list;
-	b_list ->next = new;
+	b_list ->next = c_list;
+
 	ft_lstdelone(b_list, del_f);
+	a_list->next = c_list;
 	while (a_list)
 	{
 		printf("%d\n", *(int *)a_list->content);
 		a_list = a_list->next;
+		printf("\n");
 	}
+}
+
+void	test_ft_lstclear(void)
+{
+	int *a = malloc(sizeof(int));
+	int *b = malloc(sizeof(int));
+	int *c = malloc(sizeof(int));
+
+	printf("-> TEST FT_LSTDCLEAR:\n");
+	printf("\n");
+	if (!a || !b || !c)
+		printf("memory allocation failed\n");
+	printf("\n");
+	*a = 5;
+	*b = 7;
+	*c = 12;
+
+	t_list	*a_list = ft_lstnew(a);
+	t_list	*b_list = ft_lstnew(b);
+	t_list	*c_list = ft_lstnew(c);
+	if (!a_list || !b_list || !c_list)
+	{
+		printf("create new node failed");
+		printf("\n");
+		free(a);
+		free(b);
+		free(c);
+	}
+	
+	ft_lstadd_back(&a_list, b_list);
+	ft_lstadd_back(&a_list, c_list);
+	t_list	*temp = a_list;
+
+	while (temp)
+	{
+		printf("%d\n", *(int *)temp->content);
+		temp = temp->next;
+	}
+
+	ft_lstclear(&a_list, del_f);
+	if (!a_list)
+		printf("list is empty\n");
+	else
+		printf("list is not empty\n");
+	printf("\n");
+
 }
 
 int main(void)
@@ -972,5 +1051,6 @@ int main(void)
 	test_ft_lstadd_front();
 	test_ft_lstadd_back();
 	test_ft_lstdelone();
+	test_ft_lstclear();
 	return(0);
 }
