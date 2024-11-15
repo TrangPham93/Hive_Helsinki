@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/14 15:40:08 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/15 15:06:43 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,11 @@ SRCS_BONUS = ft_lstnew_bonus.c \
               ft_lstadd_front_bonus.c \
               ft_lstsize_bonus.c \
               ft_lstlast_bonus.c \
-              ft_lstadd_back_bonus.c
+              ft_lstadd_back_bonus.c \
+              ft_lstdelone_bonus.c \
+              ft_lstiter_bonus.c \
+              ft_lstclear_bonus.c \
+              ft_lstmap_bonus.c
 
 OBJECT = $(SRCS:%.c=%.o)
 OBJECT_BONUS = $(SRCS_BONUS:%.c=%.o)
