@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:06:21 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/15 15:13:45 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:18:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst && !del)
+	if (!lst || !del)
 		return ;
 	del(lst->content);
 	free(lst);
