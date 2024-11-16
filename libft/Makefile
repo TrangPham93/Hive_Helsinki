@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/15 15:06:43 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/16 14:13:22 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,10 @@ SRCS_BONUS = ft_lstnew_bonus.c \
 OBJECT = $(SRCS:%.c=%.o)
 OBJECT_BONUS = $(SRCS_BONUS:%.c=%.o)
 
-# Define the library name, .a is a static library, which mean the files are combined at compiling time
+#  .a is a static library, which mean the files are combined at compiling time
 NAME = libft.a
+BONUS_NAME = .bonus
 
-# The default target
 all:  $(NAME)
 
 # Rule to create the .c files to .o files
@@ -85,12 +85,16 @@ all:  $(NAME)
 #  -c Suppresses the message that is normally printed when ar creates a new archive file
 #  -s Regenerates the external symbol table regardless of whether the command modifies the archive.
 #  -rcs rcs can be seen to mean replace, create, sort
+# $^ prequisite files, which mean the OBJECT
 
 $(NAME): $(OBJECT)
 	ar rcs $(NAME) $^
 
-bonus: $(OBJECT) $(OBJECT_BONUS)
+bonus: $(BONUS_NAME) 
+
+$(BONUS_NAME): $(OBJECT) $(OBJECT_BONUS)
 	ar rcs $(NAME) $^
+	touch $(BONUS_NAME)
 
 # Clean: removes the output of other targets
 clean:
@@ -100,16 +104,11 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-# Rebuild the project
 re: fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
 	gcc -nostartfiles -shared -o libft.so $(OBJECT) $(OBJECT_BONUS)
-# Bonus rules
-# ar -u : If you would like to insert only those
-# of the files you list that are newer than existing members of the same names
-# only use with ar -r
 
 .PHONY: all clean fclean re bonus
 

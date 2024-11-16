@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:44 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/14 16:18:38 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 14:15:04 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		src_s++;
 	return (dst_s + src_s);
 }
+// improve this 
