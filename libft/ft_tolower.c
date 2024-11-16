@@ -6,11 +6,9 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:23:39 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 20:51:56 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 15:24:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {

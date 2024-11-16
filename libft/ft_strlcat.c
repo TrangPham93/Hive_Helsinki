@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:44 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/16 14:15:04 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 17:37:20 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dst_s;
 	size_t	i;
-	size_t	src_s;
+	size_t	j;
+	size_t	src_len;
+	size_t	dst_len;
 
-	if (!dst && size == 0)
-		return (ft_strlen(src));
-	i = 0;
-	src_s = 0;
-	while (dst[i] && i < size)
-		i++;
-	dst_s = i;
-	if (size > dst_s)
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	if (size == 0)
+		return (src_len);
+	if (dst_len > size)
+		return (size + src_len);
+	i = dst_len;
+	j = 0;
+	while (i < size -1 && src[j])
 	{
-		while (size - i > 1 && src[src_s])
-		{
-			dst[i] = src[src_s];
-			i++;
-			src_s++;
-		}
-		dst[i] = '\0';
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	while (src[src_s])
-		src_s++;
-	return (dst_s + src_s);
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }
-// improve this 

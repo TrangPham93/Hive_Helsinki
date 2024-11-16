@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:38:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/14 10:46:07 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 18:22:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	ft_count_number(int i)
 
 char	*ft_itoa(int n)
 {
-	char	*s;
-	int		len;
-	long	nl;
+	char		*s;
+	int			len;
+	long long	nl;
 
 	len = ft_count_number(n);
 	s = malloc(len + 1);
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	s[len] = '\0';
 	if (n == 0)
 		s[0] = '0';
-	nl = (long)n;
+	nl = (long long)n;
 	if (n < 0)
 	{
 		s[0] = '-';

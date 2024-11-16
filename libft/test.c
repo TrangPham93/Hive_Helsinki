@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/15 14:23:33 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 20:44:39 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,13 @@ void	test_ft_memset(void)
 	printf("memset test 1: %s\n", (unsigned char *)memset(str, '-', 3));
 	printf("memset test 2: %s\n", (unsigned char *)memset(str, '-', 15));
 	printf("\n");
-	printf("ft_memset test 1: %s\n", (unsigned char *)ft_memset(test_str, '*', 3));
-	printf("ft_memset test 2: %s\n", (unsigned char *)ft_memset(test_str, '*', 15));
+	printf("ft_memset test 1: %s\n", (unsigned char *)ft_memset(test_str, '-', 3));
+	printf("ft_memset test 2: %s\n", (unsigned char *)ft_memset(test_str, '-', 15));
+	printf("\n");
+	char *s = '\0';
+	// printf("memset test 3: %s\n", (unsigned char *)memset(s, '-', 15));
+	printf("memset test 3: %s\n", (unsigned char *)ft_memset(s, '-', 15));
+	printf("\n");
 }
 void	test_ft_bzero(void)
 {
@@ -175,10 +180,11 @@ void	test_ft_memcpy(void)
 	char	dest2[20] = "or longer";
 	// char	dest3[20] = "or longer";
 	// char	dest4[20] = "or longer";
-	char	src1[20] = "noliin";
-	char	src2[20] = "noliin";
+	char	src1[20] = "KHL";
+	char	src2[20] = "KHL";
+
 	char	src3[20] = "noliin";
-	char	src4[20] = "noliin";
+	char	src4[20] = "noliin";  noliin -> liin --> noln
 
 	printf("-> TEST MEMCPY:\n");
 	printf("\n");
@@ -192,8 +198,14 @@ void	test_ft_memcpy(void)
 	printf("memcpy   : %s\n", (unsigned char *)memcpy(dest1, src1, 0));
 	printf("ft_memcpy: %s\n", (unsigned char *)ft_memcpy(dest1, src1, 0));
 	printf("\n");
-	printf("memcpy   : %s\n", (unsigned char *)memcpy(src3 + 2, src3, 7));
-	printf("ft_memcpy: %s\n", (unsigned char *)ft_memcpy(src4 + 2, src4, 7));
+	// printf("memcpy   : %s\n", (unsigned char *)memcpy(src3 + 2, src3, 3));
+	// printf("ft_memcpy: %s\n", (unsigned char *)ft_memcpy(src4 + 2, src4, 3));
+	// printf("\n");
+
+	char	*dest7 = NULL;
+	// printf("memcpy   : %s\n", (unsigned char *)memcpy(dest7, src3, 7));
+	printf("memcpy return segmetation fault \n");
+	printf("ft_memcpy: %s\n", (unsigned char *)ft_memcpy(dest7, src4, 7));
 	// This overlapping causes undefined behavior because:
     // You're modifying the source data as you're reading from it.
     // You're writing beyond the end of the originally allocated memory.
@@ -229,23 +241,43 @@ void	test_ft_memmove(void)
 
 void	test_ft_strlcat(void)
 {
-	char d[20] = "";
+	char d[20] = "one two three";
 	char s[20]	= "HAKHA";
 
-	char d_test[20] = "";
+	char d_test[20] = "one two three";
 	char s_test[20]	= "HAKHA";
+
 	printf("-> TEST STRLCAT:\n");
 	printf("\n");
-	printf("strlcat   : %ld\n",strlcat(d, s, 0));
-	printf("ft_strlcat: %ld\n",ft_strlcat(d_test, s_test, 0));
-	printf("\n");
-	printf("strlcat   :%ld\n",strlcat(d, s, 2));
-	printf("ft_strlcat: %ld\n",ft_strlcat(d_test, s_test, 2));
-	printf("\n");
-	printf("strlcat   :%ld\n",strlcat(d,s,5));
-	printf("ft_strlcat: %ld\n",ft_strlcat(d_test, s_test, 5));
+	printf("d %s\n", d);
+	printf("s %s\n", s);
+	printf("strlcat  size 0 : %ld\n",strlcat(d, s, 0));
+	printf("d_test %s\n", d_test);
+	printf("s_test %s\n", s_test);
+	printf("ft_strlcat size 0 : %ld\n",ft_strlcat(d_test, s_test, 0));
 	printf("\n");
 
+	printf("d %s\n", d);
+	printf("s %s\n", s);
+	printf("strlcat size 2 :%ld\n",strlcat(d, s, 2));
+	printf("d_test %s\n", d_test);
+	printf("s_test %s\n", s_test);
+	printf("ft_strlcat size 2 : %ld\n",ft_strlcat(d_test, s_test, 2));
+	printf("\n");
+	
+	printf("d %s\n", d);
+	printf("s %s\n", s);
+	printf("strlcat  size 5 :%ld\n",strlcat(d,s,5));
+	printf("d %s\n", d);
+	printf("s %s\n", s);
+	printf("\n");
+	printf("d_test %s\n", d_test);
+	printf("s_test %s\n", s_test);
+	printf("ft_strlcat size 5 : %ld\n",ft_strlcat(d_test, s_test, 5));
+	printf("d_test %s\n", d_test);
+	printf("s_test %s\n", s_test);
+	printf("\n");
+	
 	char d1[20] = "Vis";
 	char s1[20]	= "";
 
@@ -254,30 +286,40 @@ void	test_ft_strlcat(void)
 
 	printf("strlcat   : %ld\n",strlcat(d1, s1, 8));
 	printf("ft_strlcat: %ld\n",ft_strlcat(d_test1, s_test1, 8));
+
+
+	// printf("NULL input :%ld\n", strlcat("Visao", NULL, 2));
+	// printf("NULL input :%ld\n", ft_strlcat("Visao", NULL, 2));
 }
 
 void	test_ft_strlcpy(void)
 {
-	char d[20] = "Vis";
-	char s[20]	= "HAKHA";
+	char d1[15] = "Visao";
+	char s1[20]	= "HAKAHAKA";
+	char d2[15] = "Visao";
+	char s2[20]	= "HAKAHAKA";
+	printf("\n");
 	printf("-> TEST STRLCPY:\n");
+	printf("dest len %ld\n", ft_strlen(d1));
+	printf("dest len %ld\n", ft_strlen(d2));
 	printf("\n");
-
-	printf("strlcpy   :%ld\n",strlcpy(d,s,2));
-	printf("ft_strlcpy: %ld\n",ft_strlcpy(d,s,2));
+	printf("after copy '%s' | '%s' strlcpy size 0  :%zu\n",d1, s1, strlcpy(d1,s1,0));
+	printf("after copy '%s' | '%s' ft_strlcpy size 0: %zu\n",d2, s2, ft_strlcpy(d2,s2,0));
+	printf("%s\n", d1);
+	printf("%s\n", d2);
 	printf("\n");
-	printf("strlcpy   :%zu\n",strlcpy(d,s,0));
-	printf("ft_strlcpy: %zu\n",ft_strlcpy(d,s,0));
+	printf("'%s' | '%s' strlcpy	size 2 :%ld\n", d1, s1, strlcpy(d1,s1,2));
+	printf("'%s' | '%s' ft_strlcpy size 2	: %ld\n", d2, s2, ft_strlcpy(d2,s2,2));
+	printf("%ld\n", ft_strlen(d1));
+	printf("%ld\n", ft_strlen(d2));
+	printf("\n");
+	printf("'%s' | '%s' strlcpy size 5	:%ld\n", d1, s1, strlcpy(d1,s1,5));
+	printf("'%s' | '%s' ft_strlcpy size 5	: %ld\n", d2, s2, ft_strlcpy(d2,s2,5));
+	printf("%ld\n", ft_strlen(d1));
+	printf("%ld\n", ft_strlen(d2));
+	printf("\n");
+	
 
-
-	// Where dst is the destination buffer, 
-	// src is the source string, 
-	// and size is the size of the destination buffer
-	// With the strlcpy() function, however, 
-	// only size characters maximum are copied, 
-	// and the value returned is the size of string src. 
-	// (The value returned is always the size of string src 
-	// regardless of how many characters are copied.)
 } 
 
 void	test_ft_toupper(void)
@@ -347,12 +389,12 @@ void	test_ft_strchr(void)
 
 void	test_ft_strrchr(void)
 {
-	char 	*s = "Vi sao lai the";
+	char 	*s = "One two three four";
 	printf("-> TEST STRRCHR:\n");
 	printf("\n");
 	printf("Before strchr     : %s\n", s);
-	printf("After ft_strchr l : %s\n", ft_strrchr(s, 'l'));
-	printf("After strchr l    : %s\n", strrchr(s, 'l'));
+	printf("After ft_strchr t : %s\n", ft_strrchr(s, 't'));
+	printf("After strchr t    : %s\n", strrchr(s, 't'));
 	printf("\n");
 	printf("Before strchr     : %s\n", s);
 	printf("After ft_strchr z : %s\n", ft_strrchr(s, 'z'));
@@ -363,7 +405,7 @@ void	test_ft_strrchr(void)
 	printf("After strchr  null   : %s\n", strrchr(s, '\0'));
 	printf("\n");
 	
-	char 	*s1 = "Vi sao sai the";
+	char 	*s1 = NULL;
 	
 	printf("Before strchr s: %s\n", s1);
 	printf("After strchr  s: %s\n", ft_strrchr(s, 's'));
@@ -392,9 +434,9 @@ void	test_ft_strncmp(void)
 	printf("strncmp    :%d\n", strncmp(s1, s2, 0));
 	printf("ft_strncmp :%d\n", ft_strncmp(s1, s2, 0));
 	printf("\n");
-	char	*s3 = "how ";
+	char	*s3 = NULL;
 	char	*s4 = "howare";
-	printf("strncmp    :%d\n", strncmp(s3, s4, 4));
+	printf("strncmp    : return Segmentation fault (core dumped) (undefined behavior -> allow)\n");
 	printf("ft_strncmp : %d\n", ft_strncmp(s3, s4, 4));
 }
 
@@ -453,36 +495,44 @@ void	test_ft_memcmp(void)
 void	test_ft_strnstr(void)
 {
 	char	*s1 = "NOhowb";
-	char	*s2 = "ho";
+	char	*s2 = "how";
 	char	*result;
 	
 	printf("-> TEST STRNSTR:\n");
 	printf("\n");
-	result = ft_strnstr(s1, s2, 7);
-	printf("NOhowb | ho | 7 : %s\n", result ? result : "null");
+	result = ft_strnstr(s1, s2, 5);
+	printf("'%s' | '%s' | 5 : %s\n", s1, s2, result ? result : "null");
 	printf("\n");
 
-	result = ft_strnstr(s1, s2, 5);
-	printf("NOhowb | ho | 5 :%s\n", result ? result : "null");
+	result = ft_strnstr(s1, s2, 3);
+	printf("'%s' | '%s' | 3 : %s\n", s1, s2, result ? result : "null");
 	printf("\n");
 
 	result = ft_strnstr(s1, s2, 0);
-	printf("NOhowb | ho | 3 : %s\n", result ? result : "null");
+	printf("'%s' | '%s' | 0 : %s\n", s1, s2, result ? result : "null");
 	printf("\n");
 
-	char	*s3 = "how ";
+	char	*s3 = "how";
 	char	*s4 = "";
 
 	result = ft_strnstr(s3, s4, 3);
-	printf("how | '' | 3 : %s\n", result ? result : "null");
+	printf("'%s' | '%s' | 3 : %s\n", s3, s4, result ? result : "null");
 	printf("\n");
 
-	char	*s5 = "hoa";
+	char	*s5 = NULL;
 	char	*s6 = "hoan";
 
 	result = ft_strnstr(s5, s6, 2);
-	printf("hoa | hoan | 2 : %s\n", result ? result : "null");
+	printf("'%s' | '%s' | 2 : %s\n", s5, s6, result ? result : "null");
 	printf("\n");
+	
+	char	*s7 = "how";
+	char	*s8 = NULL;
+
+	result = ft_strnstr(s7, s8, 3);
+	printf("'%s' | '%s' | 3 : %s\n", s7, s8, result ? result : "null");
+	printf("\n");
+	
 }
 
 void	test_ft_atoi(void)
@@ -577,10 +627,10 @@ void	test_ft_substr(void)
 {
 	char	*s = "one two";
 	char	*a;
-	a = ft_substr(s, 3, 4);
-	char	*s1 = "";
+	a = ft_substr(s, 4, 2);
+	char	*s1 = "one two";
 	char	*a1;
-	a1 = ft_substr(s1, 1, 0);
+	a1 = ft_substr(s1, 4, 5);
 	char	*s2 = "one";
 	char	*a2;
 	a2 = ft_substr(s2, 7, 4);
@@ -588,11 +638,11 @@ void	test_ft_substr(void)
 	printf("-> TEST SUBSTR:\n");
 	printf("\n");
 
-	printf("Str 'one two' | start = 3 | len = 4 : %s\n", a ? a : "null");
+	printf("Str '%s' | start = 4 | len = 3 : %s\n", s, a ? a : "null");
 	printf("\n");
-	printf("Str '' | start = 1 | len = 0 : %s\n", a1 ? a1 : "null");
+	printf("Str '%s' | start = 4 | len = 5 : %s\n", s1, a1 ? a1 : "null");
 	printf("\n");
-	printf("Str 'one' | start = 7 | len = 4 : %s\n", a2 ? a2 : "null");
+	printf("Str '%s' | start = 7 | len = 4 : %s\n", s2, a2 ? a2 : "null");
 	printf("\n");
 
 	free(a);
@@ -607,24 +657,30 @@ void	test_ft_strjoin(void)
 	char	*s2 = "two";
 	char	*s;
 
-	char	*s3 = "";
+	char	*s3 = NULL;
 	char	*s4 = "tow";
+
+	char	*s5 = "KOK";
+	char	*s6 = "";
 
 	printf("-> TEST STRJOIN:\n");
 	printf("\n");
 
 	s = ft_strjoin(s1, s2);
-	printf("Join s1 = one | s2 = two : %s\n", s ? s : "null");
+	printf("Join s1 = '%s' | s2 = '%s' : %s\n", s1, s2, s ? s : "null");
 	free(s);
 	s = ft_strjoin(s3, s4);
-	printf("Join s1 = '' | s2 = tow : %s\n", s ? s : "null");
+	printf("Join s1 = '%s' | s2 = '%s' : %s\n", s3, s4, s ? s : "null");
+	free(s);
+	s = ft_strjoin(s5, s6);
+	printf("Join s1 = '%s' | s2 = '%s' : %s\n", s5, s6, s ? s : "null");
 	free(s);
 	printf("\n");
 }
 
 void	test_ft_strtrim(void)
 {
-	char	*s1 = "bacHellocb";
+	char	*s1 = "bacHelAalocb";
 	char	*s2 = "abc";
 	char	*s3 = "baccb";
 	char	*s4 = "abc";
@@ -632,19 +688,20 @@ void	test_ft_strtrim(void)
 	char	*s6 = "abc";
 	char	*a;
 
+	printf("\n");
 	printf("-> TEST STRTRIM:\n");
 	printf("\n");
 
 	a = ft_strtrim(s1, s2);
-	printf("'bacHellocb' | 'abc' 	: %s\n", a ? a : "null");
-	printf("\n");
+	printf("'%s'	| '%s'	: %s\n", s1, s2, a ? a : "null");
+	
 	free(a);
 	a = ft_strtrim(s3, s4);
-	printf("'baccb' | 'abc' 	: %s\n", a ? a : "null");
-	printf("\n");
+	printf("'%s'	| '%s'	: %s\n",s3, s4, a ? a : "null");
+	
 	free(a);
 	a = ft_strtrim(s5, s6);
-	printf("'' | 'abc' 		: %s\n", a ? a : "null");
+	printf("'%s'	| '%s'	: %s\n",s5, s6, a ? a : "null");
 	printf("\n");
 	free(a);
 
@@ -1159,46 +1216,46 @@ void	test_ft_lstmap(void)
 }
 int main(void)
 {
-	test_ft_isalpha();
-	test_ft_isdigit();
-	test_ft_isalnum();
-	test_ft_isascii();
-	test_ft_isprint();
-	test_ft_strlen();
-	test_ft_memset();
-	test_ft_bzero();
+	// test_ft_isalpha();
+	// test_ft_isdigit();
+	// test_ft_isalnum();
+	// test_ft_isascii();
+	// test_ft_isprint();
+	// test_ft_strlen();
+	// test_ft_memset();
+	// test_ft_bzero();
 	test_ft_memcpy();
-	test_ft_memmove();
-	test_ft_strlcat();
-	test_ft_strlcpy();
-	test_ft_tolower();
-	test_ft_toupper();
-	test_ft_strchr();
-	test_ft_strrchr();
-	test_ft_strncmp();
-	test_ft_memchr();
-	test_ft_memcmp();
-	test_ft_strnstr();
-	test_ft_atoi();
-	test_ft_calloc();
-	test_ft_strdup();
-	test_ft_substr();
-	test_ft_strjoin();
-	test_ft_strtrim();
-	test_ft_split();
-	test_ft_itoa();
-	test_ft_strmapi();
-	test_ft_striteri();
-	test_ft_putchar_ft();
-	test_ft_putstr_fd();
-	test_ft_putnbr_fd();
-	test_ft_lstnew();
-	test_ft_lstsize();
-	test_ft_lstlast();
-	test_ft_lstadd_front();
-	test_ft_lstadd_back();
-	test_ft_lstdelone();
-	test_ft_lstclear();
-	test_ft_lstiter();
+	// test_ft_memmove();
+	// test_ft_strlcat();
+	// test_ft_strlcpy();
+	// test_ft_tolower();
+	// test_ft_toupper();
+	// test_ft_strchr();
+	// test_ft_strrchr();
+	// test_ft_strncmp();
+	// test_ft_memchr();
+	// test_ft_memcmp();
+	// test_ft_strnstr();
+	// test_ft_atoi();
+	// test_ft_calloc();
+	// test_ft_strdup();
+	// test_ft_substr();
+	// test_ft_strjoin();
+	// test_ft_strtrim();
+	// test_ft_split();
+	// test_ft_itoa();
+	// test_ft_strmapi();
+	// test_ft_striteri();
+	// test_ft_putchar_ft();
+	// test_ft_putstr_fd();
+	// test_ft_putnbr_fd();
+	// test_ft_lstnew();
+	// test_ft_lstsize();
+	// test_ft_lstlast();
+	// test_ft_lstadd_front();
+	// test_ft_lstadd_back();
+	// test_ft_lstdelone();
+	// test_ft_lstclear();
+	// test_ft_lstiter();
 	return(0);
 }

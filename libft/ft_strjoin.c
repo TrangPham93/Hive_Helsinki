@@ -6,51 +6,33 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:46:09 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/16 14:15:57 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 19:52:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char const *source)
-{
-	int	i_dest;
-	int	i_source;
-
-	i_dest = 0;
-	i_source = 0;
-	while (dest[i_dest])
-		i_dest++;
-	while (source[i_source])
-	{
-		dest[i_dest] = source[i_source];
-		i_dest++;
-		i_source++;
-	}
-	dest[i_dest] = '\0';
-	return (dest);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s;
-	size_t	total_len;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	total_len = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	s1_len = 0;
+	s2_len = 0;
 	if (s1)
-		total_len += ft_strlen(s1);
+		s1_len = ft_strlen(s1);
 	if (s2)
-		total_len += ft_strlen(s2);
-	total_len += 1;
-	if (total_len == 1)
-		return (ft_calloc(1,1));
-	s = malloc(total_len);
+		s2_len = ft_strlen(s2);
+	s = malloc(s1_len + s2_len + 1);
 	if (!s)
 		return (NULL);
-	s[0] = '\0';
 	if (s1)
-		ft_strcat(s, s1);
+		ft_memcpy(s, s1, s1_len);
 	if (s2)
-		ft_strcat(s, s2);
+		ft_memcpy(s + s1_len, s2, s2_len);
+	s[s1_len + s2_len] = '\0';
 	return (s);
 }

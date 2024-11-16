@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:26:36 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/13 22:29:00 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/16 18:19:39 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,3 +98,4 @@ char	**ft_split(char const *s, char c)
 	words_arr = ft_process(s, c, i, words_arr);
 	return (words_arr);
 }
+// recheck
