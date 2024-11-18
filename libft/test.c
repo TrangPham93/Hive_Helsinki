@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/16 20:44:39 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:18:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,8 @@ void	test_ft_memcpy(void)
 	char	src1[20] = "KHL";
 	char	src2[20] = "KHL";
 
-	char	src3[20] = "noliin";
-	char	src4[20] = "noliin";  noliin -> liin --> noln
+	// char	src3[20] = "noliin";
+	char	src4[20] = "noliin";
 
 	printf("-> TEST MEMCPY:\n");
 	printf("\n");
@@ -288,8 +288,8 @@ void	test_ft_strlcat(void)
 	printf("ft_strlcat: %ld\n",ft_strlcat(d_test1, s_test1, 8));
 
 
-	// printf("NULL input :%ld\n", strlcat("Visao", NULL, 2));
-	// printf("NULL input :%ld\n", ft_strlcat("Visao", NULL, 2));
+	// printf("NULL input :%ld\n", strlcat("Visao", NULL, 0));
+	printf("NULL input :%ld\n", ft_strlcat("Visao", NULL, 0));
 }
 
 void	test_ft_strlcpy(void)
@@ -1224,7 +1224,7 @@ int main(void)
 	// test_ft_strlen();
 	// test_ft_memset();
 	// test_ft_bzero();
-	test_ft_memcpy();
+	// test_ft_memcpy();
 	// test_ft_memmove();
 	// test_ft_strlcat();
 	// test_ft_strlcpy();
@@ -1235,7 +1235,7 @@ int main(void)
 	// test_ft_strncmp();
 	// test_ft_memchr();
 	// test_ft_memcmp();
-	// test_ft_strnstr();
+	test_ft_strnstr();
 	// test_ft_atoi();
 	// test_ft_calloc();
 	// test_ft_strdup();

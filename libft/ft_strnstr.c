@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:45:57 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/16 15:58:59 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:18:16 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	little_len;
 
-	if (!big || !little)
+	if ((!big && !len))
 		return (NULL);
 	little_len = ft_strlen(little);
 	if (*little == '\0')
