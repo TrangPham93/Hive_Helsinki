@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:44 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/18 11:12:05 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:25:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if ((!dst || !src) && size == 0)
 		return (0);
 	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);	
+	dst_len = ft_strlen(dst);
 	if (dst_len > size)
 		return (size + src_len);
 	i = dst_len;
