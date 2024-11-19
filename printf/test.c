@@ -15,11 +15,19 @@
 
 void	test_ft_printf(void)
 {
+	printf("--> PRINT CHAR: \n");
 	printf("%c\n", 'a');
 	ft_printf("%c", 'a');
-	
-	// ft_printf(c, ...);
+	printf("\n");
 
+	printf("--> PRINT CHAR: \n");
+	printf("%s\n", "Why's that");
+	ft_printf("%s\n", "Why's that");
+	printf("\n");
 
+	printf("--> PRINT INT: \n");
+	printf("%d\n", 23);
+	ft_printf("%d\n", 23);
+	printf("\n");
 
 }

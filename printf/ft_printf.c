@@ -12,14 +12,13 @@
 
 #include "libftprintf.h"
 
-static void ft_process(char c, va_list args);
+static int ft_process(char c, va_list args);
 
 int	ft_printf(const char	*str, ...)
 {
 	va_list	args;
-	unsigned char	i;
-	// unsigned char	count;
-	// char	c;
+	int	i;
+	int	count;
 
 	if (!str)
 		return (-1);
@@ -30,65 +29,71 @@ int	ft_printf(const char	*str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			ft_process(str[i], args);
+			if (str[i] == 'c' || str[i] == 's' ||  str[i] == 'p' || str[i] == 'd' || str[i] == 'i'
+				|| str[i] == 'u' || str[i] == 'x' || str[i] == 'X' || str[i] == '%')
+			{
+				count = ft_process(str[i], args);
+			}
+			else
+				return (-1);
 		}
 		i++;
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }
 
-static void ft_process(char c, va_list args)
+static int ft_process(char c, va_list args)
 {
-	// unsigned char	i;
-	// void	*next_arg;
-	void	*next_arg;
+	int	count;
 
 	if (c == 'c')
 	{
-		c = va_arg(args, int);
-		ft_putchar_fd(c, 1);
+		ft_putchar_fd(va_arg(args, int), 1);
+		count = 1;
 	}
 	else if (c == 's')
-	{
-		c = va_arg(args, char*);
-		ft_putstr_fd(c, 1);
-	}
-	// else if (c == 's')
-	// {
-	// 	next_arg = va_arg(args, char*);
-	// 	ft_putstr_fd(next_arg, 1);
-	// }
-	// else if (str == 'd')
-	// {
-	// 	next_arg = va_arg(args, int);
-	// 	ft_putnbr_fd(next_arg, 11);
-	// }
-	// else if (str == 'p')
+		count = ft_putstr_fd(va_arg(args, char*), 1);
+	else if (c == 'd')
+		count = ft_putnbr_fd(va_arg(args, int), 1);
+	// else if (c == 'p')
 	// {
 
 	// }
-	// else if (str == 'i')
+	// else if (c == 'i')
 	// {
 
 	// }
-	// else if (str == 'u')
+	// else if (c == 'u')
 	// {
 
 	// }
-	// else if (str == '%')
+	// else if (c == 'x' || c == 'X')
 	
-	else
+	else if (c == '%')
+	{
 		ft_putchar_fd('%', 1);
+		count = 1;
+	}
+	return (count);
 }
 
 int	main(void)
 {
+	printf("--> PRINT CHAR: \n");
 	printf("%c\n", 'a');
 	ft_printf("%c", 'a');
-	
-	// ft_printf(c, ...);
+	printf("\n");
 
+	printf("--> PRINT CHAR: \n");
+	printf("%s\n", "Why's that");
+	ft_printf("%s\n", "Why's that");
+	printf("\n");
 
+	printf("--> PRINT INT: \n");
+	printf("total is %d %%\n", 23);
+	ft_printf("total is %d %%\n", 23); // need to print 'total is ??'
+	printf("\n");
 
+	return (0);
 }
