@@ -6,42 +6,55 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:59:35 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/19 17:06:25 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+static void ft_process(char c, va_list args);
+
 int	ft_printf(const char	*str, ...)
 {
 	va_list	args;
+	unsigned char	i;
+	// unsigned char	count;
+	// char	c;
 
+	if (!str)
+		return (-1);
+	i = 0;
 	va_start(args, str);
-	while (*str)
+	while (str[i])
 	{
-		if (*str == '%')
+		if (str[i] == '%')
 		{
-			str++;
-			ft_process(*str, args);
+			i++;
+			ft_process(str[i], args);
 		}
-		str++;
+		i++;
 	}
 	va_end(args);
-
 	return (0);
 }
 
-static void ft_process(char str, va_list args)
+static void ft_process(char c, va_list args)
 {
 	// unsigned char	i;
+	// void	*next_arg;
 	void	*next_arg;
 
-	if (str == 'c')
+	if (c == 'c')
 	{
-		next_arg = va_arg(args, char);
-		ft_putchar_fd(next_arg, 1);
+		c = va_arg(args, int);
+		ft_putchar_fd(c, 1);
 	}
-	// else if (str == 's')
+	else if (c == 's')
+	{
+		c = va_arg(args, char*);
+		ft_putstr_fd(c, 1);
+	}
+	// else if (c == 's')
 	// {
 	// 	next_arg = va_arg(args, char*);
 	// 	ft_putstr_fd(next_arg, 1);
@@ -67,4 +80,15 @@ static void ft_process(char str, va_list args)
 	
 	else
 		ft_putchar_fd('%', 1);
+}
+
+int	main(void)
+{
+	printf("%c\n", 'a');
+	ft_printf("%c", 'a');
+	
+	// ft_printf(c, ...);
+
+
+
 }
