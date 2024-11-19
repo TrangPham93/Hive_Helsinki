@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:56:47 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:38:15 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/19 14:52:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	while (*s)
 	{
-		ft_put
+		ft_putchar_fd(*s, fd);
 		s++;
 	}
 }

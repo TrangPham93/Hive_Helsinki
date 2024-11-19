@@ -6,9 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:37:52 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:37:57 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/19 14:50:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libftprintf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

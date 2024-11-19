@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:42:32 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/19 14:59:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ static void ft_process(char str, va_list args)
 		next_arg = va_arg(args, char);
 		ft_putchar_fd(next_arg, 1);
 	}
-	else if (str == 's')
-	{
-		next_arg = va_arg(args, char*);
-		ft_putstr_fd(next_arg, 1);
-	}
-	else if (str == 'd')
-	{
-		next_arg = va_arg(args, int);
-		ft_putnbr_fd(next_arg, 11);
-	}
+	// else if (str == 's')
+	// {
+	// 	next_arg = va_arg(args, char*);
+	// 	ft_putstr_fd(next_arg, 1);
+	// }
+	// else if (str == 'd')
+	// {
+	// 	next_arg = va_arg(args, int);
+	// 	ft_putnbr_fd(next_arg, 11);
+	// }
 	// else if (str == 'p')
 	// {
 

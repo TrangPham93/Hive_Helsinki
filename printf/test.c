@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 12:45:11 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/19 15:00:08 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	test_ft_printf(void)
 {
 	printf("%c\n", 'a');
+	ft_printf("%c", 'a');
 	
 	// ft_printf(c, ...);
 
