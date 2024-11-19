@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:40:49 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/09 16:56:28 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/09 17:11:58 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h> // remember to delete
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (s == NULL)
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+}
 
-int	ft_printf(const char	*, ...);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-#endif
+/* int	main(void)
+{
+	char	*s = "check";
+	ft_putstr_fd(s, 1);
+	write(1, "\n", 1); // "\n" equivalent to passing &("\n")
+	return (0);
+} */

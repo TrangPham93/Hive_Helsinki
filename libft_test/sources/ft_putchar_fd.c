@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:40:49 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/09 16:36:11 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/09 16:55:51 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
+/* 
+file descripter refer to an open file in a process
+0, 1, 2 are stdin, stdout and stderr 
+ssize_t write(int fd, const void *buf, size_t count);
+buf: a pointer to the data to write
+*/
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h> // remember to delete
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
 
-int	ft_printf(const char	*, ...);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-#endif
+/* int	main(void)
+{
+	ft_putchar_fd('a', 1);
+	ft_putchar_fd('\n', 1); // flush the output so 'a' is printed out
+	return (0);
+} */

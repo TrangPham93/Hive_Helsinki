@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:40:49 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/01 14:22:22 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/01 18:27:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+int	ft_isalpha(unsigned char c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
+}
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h> // remember to delete
+/*
+#include <ctype.h>
+#include <stdio.h>
 
-int	ft_printf(const char	*, ...);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-#endif
+int	main(void)
+{
+	printf("%d\n", isalpha('d'));
+	printf("%d\n", ft_isalpha('d'));
+	return (0);
+}*/

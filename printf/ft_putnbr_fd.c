@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:40:49 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/19 14:07:11 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/19 14:09:13 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h> // remember to delete
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	nb;
 
-int	ft_printf(const char	*, ...);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-#endif
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+	}
+	if (nb >= 10)
+		write(fd, nb / 10, 1);
+	ft_putchar_fd(nb % 10 + '0', fd);
+}
