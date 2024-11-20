@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_hex_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:07:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/20 10:21:05 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/20 13:51:27 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_hex_fd(long long nbr, int fd, char b)
 {
-	long	nb;
 	int	count;
+	char	*base;
 
 	count = 0;
-	nb = n;
-	if (nb < 0)
+	if (b == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nb = -nb;
+		nbr = -nbr;
 		count++;
 	}
-	if (nb >= 10)
-		ft_putnbr_fd(nb / 10, fd);
-	ft_putchar_fd(nb % 10 + '0', fd);
-	count++;
+	if (nbr >= 16)
+	{
+		count++;
+		ft_putnbr_hex_fd(nbr / 16, fd, b);
+	}
+	ft_putchar_fd(base[nbr % 16], fd);
 	return (count);
+}
+
+int	main(void)
+{
+	ft_putnbr_hex_fd(-123, 1, 'x');
+	printf("\n");
+	printf("%x\n", -123);
+	return (0);
 }

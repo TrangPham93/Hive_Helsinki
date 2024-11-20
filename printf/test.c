@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 15:00:08 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/20 10:35:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@ void	test_ft_printf(void)
 	printf("\n");
 
 	printf("--> PRINT INT: \n");
-	printf("%d\n", 23);
-	ft_printf("%d\n", 23);
+	printf("total is %d %%\n", -123);
+	ft_printf("total is %d %%\n", -123); // need to print 'total is ??'
 	printf("\n");
 
+
+}
+
+int	main(void)
+{
+	test_ft_printf();
+	return (0);
 }
