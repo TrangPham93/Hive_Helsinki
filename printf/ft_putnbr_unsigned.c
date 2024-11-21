@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:07:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/20 10:21:05 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/21 21:58:55 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/21 22:02:46 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_unsigned(unsigned int	nb, int fd)
 {
-	long	nb;
 	int	count;
-
-	count = 0;
-	nb = n;
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
-		count++;
-	}
+	
+	count = 0;	
 	if (nb >= 10)
 		count += ft_putnbr_fd(nb / 10, fd);
 	ft_putchar_fd(nb % 10 + '0', fd);

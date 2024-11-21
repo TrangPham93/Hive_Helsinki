@@ -72,20 +72,11 @@ static int	ft_process(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		count = ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
-		count = ft_putnbr_fd(va_arg(args, unsigned int), 1); // a separate function to handle unsigned integer?
+		count = ft_putnbr_unsigned(va_arg(args, unsigned int), 1);
 	else if (c == 'x' || c == 'X')
 		count = ft_putnbr_hex_fd(va_arg(args, unsigned int), 1, c);
 	else if (c == 'p')
-	{
-		ptr = va_arg(args, void *);
-		if (!ptr)
-			count = ft_putstr_fd("(nil)", 1);
-		else
-		{
-			count = ft_putstr_fd("0x", 1);
-			count += ft_putnbr_hex_fd((uintptr_t)ptr, 1, 'x');
-		}
-	}
+		count = ft_putptr_fd(va_arg(args, uintptr_t), 1);
 	else if (c == '%')
 		count = ft_putchar_fd('%', 1);
 	return (count);
