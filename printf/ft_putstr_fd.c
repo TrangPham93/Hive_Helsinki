@@ -17,7 +17,7 @@ int	ft_putstr_fd(char *s, int fd)
 	int	count;
 
 	if (!s)
-		return (-1);
+		return (ft_putstr_fd("(null)", fd)); // or return (-1) ?
 	count = 0;
 	while (s[count])
 	{

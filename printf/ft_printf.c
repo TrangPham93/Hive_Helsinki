@@ -12,6 +12,7 @@
 
 #include "libftprintf.h"
 
+static int	ft_informat(char c);
 static int	ft_process(char c, va_list args);
 
 int	ft_printf(const char	*str, ...)
@@ -23,50 +24,69 @@ int	ft_printf(const char	*str, ...)
 	if (!str)
 		return (-1);
 	i = 0;
+	count = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && ft_informat(str[i + 1]) == 1)
 		{
-			i++;
-			if (str[i] == 'c' || str[i] == 's' || str[i] == 'p' || str[i] == 'd'
-				|| str[i] == 'i' || str[i] == 'u' || str[i] == 'x' || str[i] == 'X' || str[i] == '%')
-				count = ft_process(str[i], args);
-			else
-				return (-1);
+			count += ft_process(str[i + 1], args);
+			i +=2;
 		}
+		else if (str[i] == '%' && str[i + 1] == '\0')
+			break ;
 		else
-			ft_putchar_fd(str[i], 1);
-		i++;
+		{
+			count += ft_putchar_fd(str[i], 1);
+			i++;
+		}
 	}
 	va_end(args);
 	return (count);
 }
 
+static int	ft_informat(char c)
+{
+	char	*s;
+
+	s = "cspdiuxX%";
+	while (*s)
+	{
+		if (*s == c)
+			return (1);
+		s++;
+	}
+	return (0);
+}
+
 static int	ft_process(char c, va_list args)
 {
 	int	count;
+	void	*ptr;
 
+	count = 0;
 	if (c == 'c')
-	{
-		ft_putchar_fd(va_arg(args, int), 1);
-		count = 1;
-	}
+		count = ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
 		count = ft_putstr_fd(va_arg(args, char*), 1);
-	else if (c == 'd' || c == 'i' || c == 'u')
+	else if (c == 'd' || c == 'i')
 		count = ft_putnbr_fd(va_arg(args, int), 1);
+	else if (c == 'u')
+		count = ft_putnbr_fd(va_arg(args, unsigned int), 1); // a separate function to handle unsigned integer?
 	else if (c == 'x' || c == 'X')
-		count = ft_putnbr_hex_fd(va_arg(args, long long), 1, c);
-
-	// else if (c == 'p')
-	// {
-	// 	count = ft_putstr_fd(va_arg(args, ), 1);
-	// }
-	else if (c == '%')
+		count = ft_putnbr_hex_fd(va_arg(args, unsigned int), 1, c);
+	else if (c == 'p')
 	{
-		ft_putchar_fd('%', 1);
-		count = 1;
+		ptr = va_arg(args, void *);
+		if (!ptr)
+			count = ft_putstr_fd("(nil)", 1);
+		else
+		{
+			count = ft_putstr_fd("0x", 1);
+			count += ft_putnbr_hex_fd((uintptr_t)ptr, 1, 'x');
+		}
 	}
+	else if (c == '%')
+		count = ft_putchar_fd('%', 1);
 	return (count);
 }

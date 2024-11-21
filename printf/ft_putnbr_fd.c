@@ -17,6 +17,11 @@ int	ft_putnbr_fd(int n, int fd)
 	long	nb;
 	int	count;
 
+	// if (!n) // is this correct ?
+	// {
+	// 	count = ft_putstr_fd("(null)", 1);
+	// 	return (count);
+	// }
 	count = 0;
 	nb = n;
 	if (nb < 0)
@@ -26,8 +31,7 @@ int	ft_putnbr_fd(int n, int fd)
 		count++;
 	}
 	if (nb >= 10)
-		ft_putnbr_fd(nb / 10, fd);
+		count += ft_putnbr_fd(nb / 10, fd);
 	ft_putchar_fd(nb % 10 + '0', fd);
-	count++;
-	return (count);
+	return (count + 1);
 }
