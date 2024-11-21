@@ -18,11 +18,12 @@
 # include <stdlib.h>
 
 int	ft_printf(const char	*str, ...);
-int	ft_putstr_fd(char *s, int fd);
 int	ft_putchar_fd(char c, int fd);
+int	ft_putstr_fd(char *s, int fd);
 int	ft_putnbr_fd(int n, int fd);
-int	ft_putnbr_hex_fd(unsigned int nbr, int fd, char b);
-int	ft_putptr_fd(unsigned long long p, int fd);
 int	ft_putnbr_unsigned(unsigned int n, int fd);
+int	ft_putnbr_hex_fd(int nbr, int fd, char b);
+int	ft_putptr_fd(unsigned long long p, int fd);
+
 
 #endif

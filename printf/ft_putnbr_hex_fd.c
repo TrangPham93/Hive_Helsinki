@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	ft_putnbr_hex_fd(unsigned int nbr, int fd, char b)
+int	ft_putnbr_hex_fd(int nbr, int fd, char b)
 {
 	int	count;
 	char	*base;
