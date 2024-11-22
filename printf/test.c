@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 11:31:38 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 12:47:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	int	real;
 	int	dup;
 
-	// printf("--> NULL format:");
+	// printf("--> NULL format:"); // cannot test 
 	// real = printf(NULL);
 	// dup = ft_printf(NULL);
 	// printf("real = %d\ndup = %d\n", real, dup);
@@ -82,27 +82,39 @@ int	main(void)
 	printf("\n");
 
 	printf("--> PRINT POINTER: \n");
-	real = printf("total is %p", "23");
+	real = printf("total is %p", &"23");
 	printf("\n");
-	dup = ft_printf("total is %p", "23"); 
+	dup = ft_printf("total is %p", &"23"); 
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
 
-	// printf("--> PRINT NULL POINTER: \n");
-	// real = printf("total is %p", NULL);
-	// printf("\n");
-	// dup = ft_printf("total is %p", NULL); 
-	// printf("\n");
-	// printf("real = %d\ndup = %d\n", real, dup);
-	// printf("\n");
+	long	*a = (long *)LONG_MIN;
+	long	*b = (long *)LONG_MAX;
+	printf("--> PRINT really big POINTER: \n");
+	real = printf("total is %p %p", &a, &b);
+	printf("\n");
+	dup = ft_printf("total is %p %p", &a, &b); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	long	*c = (long *)ULONG_MAX;
+	long	*d = (long *)-ULONG_MAX;
+	printf("--> PRINT ultra big POINTER: \n");
+	real = printf("total is %p %p", &c, &d);
+	printf("\n");
+	dup = ft_printf("total is %p %p", &c, &d); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
 	
-	printf("--> PRINT EDGE CASE: \n");
-	real = printf("total %% of population is %d", 5); // not correct?
-	printf("\n");
-	dup = ft_printf("total %% of population is %d", 5);
-	printf("\n");
-	printf("real = %d\ndup = %d\n", real, dup); 
-	printf("\n");
+	// printf("--> PRINT EDGE CASE: \n");
+	// real = printf("total %% of population is %d%", 5); // not working with cflags
+	// printf("\n");
+	// dup = ft_printf("total %% of population is %d%", 5);
+	// printf("\n");
+	// printf("real = %d\ndup = %d\n", real, dup); 
+	// printf("\n");
 
 }
