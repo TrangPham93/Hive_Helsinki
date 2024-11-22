@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 13:08:29 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 17:15:20 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_puthex_fd(unsigned long nbr, int fd, char b)
 		base = "0123456789abcdef";
 	else if (b == 'X')
 		base = "0123456789ABCDEF";
-	else
-		return (-1);
+	// else
+	// 	return (-1);
 	if (nbr >= 16)
 		count += ft_puthex_fd(nbr / 16, fd, b);
 	ft_putchar_fd(base[nbr % 16], fd);
