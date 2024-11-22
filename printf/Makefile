@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 17:28:20 by trpham            #+#    #+#              #
-#    Updated: 2024/11/22 11:31:06 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/22 13:06:20 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c \
 		ft_putchar_fd.c \
 		ft_putnbr_fd.c \
-		ft_putnbr_hex_fd.c \
+		ft_puthex_fd.c \
 		ft_putnbr_unsigned.c \
 		ft_putptr_fd.c \
 		ft_putstr_fd.c

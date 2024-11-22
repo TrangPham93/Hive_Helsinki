@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 12:52:56 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 13:06:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	ft_process(char c, va_list args)
 	else if (c == 'u')
 		count = ft_putnbr_unsigned(va_arg(args, unsigned int), 1);
 	else if (c == 'x' || c == 'X')
-		count = ft_putnbr_hex_fd(va_arg(args, unsigned int), 1, c);
+		count = ft_puthex_fd(va_arg(args, unsigned int), 1, c);
 	else if (c == 'p')
 		count = ft_putptr_fd(va_arg(args, void *), 1);
 	else if (c == '%')

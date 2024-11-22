@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:50:17 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 12:51:23 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 13:06:27 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putptr_fd(void *ptr, int fd)
 	else
 	{
 		count = ft_putstr_fd("0x", fd);
-		count += ft_putnbr_hex_fd(u_ptr, fd, 'x');
+		count += ft_puthex_fd(u_ptr, fd, 'x');
 	}
 	return (count);
 }
