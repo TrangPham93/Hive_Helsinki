@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 12:47:44 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:47:39 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int	main(void)
 {
 	int	real;
 	int	dup;
-
-	// printf("--> NULL format:"); // cannot test 
-	// real = printf(NULL);
-	// dup = ft_printf(NULL);
-	// printf("real = %d\ndup = %d\n", real, dup);
 
 	printf("--> PRINT CHAR: \n");
 	real = printf("%c", 'a');
@@ -41,13 +36,21 @@ int	main(void)
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
 
-	// printf("--> PRINT NULL STRING: \n");
-	// real = printf("%s", NULL);
-	// printf("\n");
-	// dup = ft_printf("%s", NULL);
-	// printf("\n");
-	// printf("real = %d\ndup = %d\n", real, dup);
-	// printf("\n");
+	printf("--> PRINT NULL STRING: \n");
+	real = printf("%s", ((char *)0));
+	printf("\n");
+	dup = ft_printf("%s", ((char *)0));
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	printf("--> PRINT NULL STRING: \n");
+	real = printf("%s", "");
+	printf("\n");
+	dup = ft_printf("%s", "");
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
 
 	printf("--> PRINT INT: \n");
 	real = printf("total is %d %%", 13);
@@ -56,14 +59,6 @@ int	main(void)
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
-
-	// printf("--> PRINT NULL INT: \n");
-	// real = printf("total is %i %%", NULL);
-	// printf("\n");
-	// dup = ft_printf("total is %i %%", NULL); 
-	// printf("\n");
-	// printf("real = %d\ndup = %d\n", real, dup);
-	// printf("\n");
 
 	printf("--> PRINT hexadecimal: \n");
 	real = printf("total is %x", -456);
@@ -85,6 +80,14 @@ int	main(void)
 	real = printf("total is %p", &"23");
 	printf("\n");
 	dup = ft_printf("total is %p", &"23"); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	printf("--> PRINT NULL POINTER: \n");
+	real = printf("total is %p", NULL);
+	printf("\n");
+	dup = ft_printf("total is %p", NULL); 
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
