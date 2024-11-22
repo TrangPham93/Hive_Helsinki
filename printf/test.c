@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 14:47:39 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:55:48 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(void)
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
 
-	printf("--> PRINT NULL STRING: \n");
+	printf("--> PRINT EMPTY STRING: \n");
 	real = printf("%s", "");
 	printf("\n");
 	dup = ft_printf("%s", "");
@@ -56,6 +56,22 @@ int	main(void)
 	real = printf("total is %d %%", 13);
 	printf("\n");
 	dup = ft_printf("total is %d %%", 13); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	printf("--> PRINT INT_MIN - 1: \n");
+	real = printf("total is %d %%", INT_MIN - 1);
+	printf("\n");
+	dup = ft_printf("total is %d %%", INT_MIN - 1); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	printf("--> PRINT INT_MAX: \n");
+	real = printf("total is %d", INT_MAX);
+	printf("\n");
+	dup = ft_printf("total is %d", INT_MAX); 
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
@@ -108,6 +124,14 @@ int	main(void)
 	real = printf("total is %p %p", &c, &d);
 	printf("\n");
 	dup = ft_printf("total is %p %p", &c, &d); 
+	printf("\n");
+	printf("real = %d\ndup = %d\n", real, dup);
+	printf("\n");
+
+	printf("--> PRINT STRING & INT COMBI: \n");
+	real = printf("This is a string %s and this is an int %i end", "Why's that", 214748364);
+	printf("\n");
+	dup = ft_printf("This is a string %s and this is an int %i end", "Why's that", 214748364);
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
