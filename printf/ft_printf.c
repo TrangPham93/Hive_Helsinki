@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/20 13:45:56 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 10:39:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_printf(const char	*str, ...)
 			i +=2;
 		}
 		else if (str[i] == '%' && str[i + 1] == '\0')
-			break ;
+			return (-1);
 		else
 		{
 			count += ft_putchar_fd(str[i], 1);
@@ -62,7 +62,6 @@ static int	ft_informat(char c)
 static int	ft_process(char c, va_list args)
 {
 	int	count;
-	void	*ptr;
 
 	count = 0;
 	if (c == 'c')
