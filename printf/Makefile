@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 17:28:20 by trpham            #+#    #+#              #
-#    Updated: 2024/11/22 11:27:45 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/22 11:31:06 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = ft_printf.c \
 
 OBJECT = $(SRCS:%.c=%.o)
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 all: $(NAME)
 

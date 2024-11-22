@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 11:21:00 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:32:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,3 @@ int	ft_putnbr_hex_fd(unsigned int nbr, int fd, char b)
 	return (count + 1);
 }
 
-/* int	main(void)
-{
-	// ft_putnbr_hex_fd(-123, 1, 'x');
-	// printf("\n");
-	// printf("%x\n", -123);
-	// printf("\n");
-	int	real = printf("%x", );
-	printf("\n");
-	int	dup = ft_putnbr_hex_fd(-456, 1, 'x');
-	printf("\n");
-
-	printf("real = %d\n dup = %d\n", real, dup);
-	
-	return (0);
-} */

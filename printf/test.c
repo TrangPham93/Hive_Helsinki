@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 11:23:42 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:31:38 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ int	main(void)
 	// printf("\n");
 	
 	printf("--> PRINT EDGE CASE: \n");
-	real = printf("total %% of population is %d%", 5); // not correct?
+	real = printf("total %% of population is %d", 5); // not correct?
 	printf("\n");
-	dup = ft_printf("total %% of population is %d%", 5);
+	dup = ft_printf("total %% of population is %d", 5);
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup); 
 	printf("\n");
