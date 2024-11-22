@@ -6,11 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 10:39:47 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:20:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_informat(char c);
 static int	ft_process(char c, va_list args);
@@ -31,7 +31,7 @@ int	ft_printf(const char	*str, ...)
 		if (str[i] == '%' && ft_informat(str[i + 1]) == 1)
 		{
 			count += ft_process(str[i + 1], args);
-			i +=2;
+			i += 2;
 		}
 		else if (str[i] == '%' && str[i + 1] == '\0')
 			return (-1);
@@ -67,7 +67,7 @@ static int	ft_process(char c, va_list args)
 	if (c == 'c')
 		count = ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
-		count = ft_putstr_fd(va_arg(args, char*), 1);
+		count = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'd' || c == 'i')
 		count = ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')

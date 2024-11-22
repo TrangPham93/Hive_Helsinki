@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 10:30:27 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:20:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -25,6 +25,5 @@ int	ft_putnbr_fd(int n, int fd);
 int	ft_putnbr_unsigned(unsigned int n, int fd);
 int	ft_putnbr_hex_fd(unsigned int nbr, int fd, char b);
 int	ft_putptr_fd(uintptr_t p, int fd);
-
 
 #endif

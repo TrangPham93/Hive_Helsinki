@@ -6,16 +6,16 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:07:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/20 10:21:05 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:20:57 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
-	int	count;
+	int		count;
 
 	count = 0;
 	nb = n;

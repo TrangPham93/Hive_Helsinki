@@ -6,23 +6,28 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 17:28:20 by trpham            #+#    #+#              #
-#    Updated: 2024/11/19 12:25:57 by trpham           ###   ########.fr        #
+#    Updated: 2024/11/22 11:27:45 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c
-
+SRCS = ft_printf.c \
+		ft_putchar_fd.c \
+		ft_putnbr_fd.c \
+		ft_putnbr_hex_fd.c \
+		ft_putnbr_unsigned.c \
+		ft_putptr_fd.c \
+		ft_putstr_fd.c
 
 OBJECT = $(SRCS:%.c=%.o)
 
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECT)
@@ -31,7 +36,7 @@ $(NAME): $(OBJECT)
 clean:
 	rm -f $(OBJECT)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re:	fclean all

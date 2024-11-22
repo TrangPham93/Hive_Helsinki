@@ -6,12 +6,12 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 10:39:00 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:23:42 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "limits.h"
 #include <stdio.h> 
 

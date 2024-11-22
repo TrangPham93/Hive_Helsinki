@@ -6,18 +6,18 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:56:47 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/19 14:52:52 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:21:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr_fd(char *s, int fd)
 {
 	int	count;
 
 	if (!s)
-		return (ft_putstr_fd("(null)", fd)); // or return (-1) ?
+		return (ft_putstr_fd("(null)", fd));
 	count = 0;
 	while (s[count])
 	{

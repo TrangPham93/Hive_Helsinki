@@ -6,15 +6,15 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 10:31:51 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:21:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_hex_fd(unsigned int nbr, int fd, char b)
 {
-	int	count;
+	int		count;
 	char	*base;
 
 	count = 0;
