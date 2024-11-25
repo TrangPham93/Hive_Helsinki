@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:42:12 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/22 13:06:53 by trpham           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:28:30 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_printf(const char	*str, ...)
 			i += 2;
 		}
 		else if (str[i] == '%' && str[i + 1] == '\0')
-			return (-1);
+			return (va_end(args), -1);
 		else
 			count += ft_putchar_fd(str[i++], 1);
 	}
