@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/25 14:25:53 by trpham           ###   ########.fr       */
+/*   Updated: 2024/12/03 15:41:05 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(void)
 	int	dup;
 
 	printf("--> PRINT CHAR: \n");
-	real = printf("%c", 'a');
+	real = printf("Test %z", "dkjffkaj");
 	printf("\n");
-	dup = ft_printf("%c", 'a');
+	dup = ft_printf("Test %z", "dkjffkaj");
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
@@ -60,13 +60,13 @@ int	main(void)
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
 
-	printf("--> PRINT INT_MIN - 1: \n");
-	real = printf("total is %d %%", INT_MIN - 1);
-	printf("\n");
-	dup = ft_printf("total is %d %%", INT_MIN - 1); 
-	printf("\n");
-	printf("real = %d\ndup = %d\n", real, dup);
-	printf("\n");
+	// printf("--> PRINT INT_MIN - 1: \n");
+	// real = printf("total is %d %%", INT_MIN - 1);
+	// printf("\n");
+	// dup = ft_printf("total is %d %%", INT_MIN - 1); 
+	// printf("\n");
+	// printf("real = %d\ndup = %d\n", real, dup);
+	// printf("\n");
 
 	printf("--> PRINT INT_MAX: \n");
 	real = printf("total is %d", INT_MAX);

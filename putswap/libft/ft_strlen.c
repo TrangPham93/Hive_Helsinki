@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test2.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 11:06:11 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/28 13:22:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/01 16:40:20 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/14 11:07:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-void	test2(void)
+size_t	ft_strlen(const char *s)
 {
-	char	*nextline;
-	int		fd;
-	int		count;
+	size_t	count;
 
-	fd = open("text2.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("Error! Could not open file\n");
-		exit (-1);
-	}
 	count = 0;
-	while (1)
+	while (*s)
 	{
-		nextline = get_next_line(fd);
-		if (!nextline)
-		{
-			printf("EOF! Could not get next line\n");
-			break ;
-		}
 		count++;
-		printf("return line [%d]:%s\n", count, nextline);
-		free(nextline);
+		s++;
 	}
-	close(fd);
+	return (count);
 }
