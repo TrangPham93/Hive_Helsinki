@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:42:22 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/25 14:25:53 by trpham           ###   ########.fr       */
+/*   Updated: 2024/12/17 10:23:46 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 	printf("\n");
 
 	printf("--> PRINT NULL STRING: \n");
-	real = printf("%s", ((char *)0));
+	// real = printf("%s", ((char *)0));
 	printf("\n");
 	dup = ft_printf("%s", ((char *)0));
 	printf("\n");
@@ -61,9 +61,9 @@ int	main(void)
 	printf("\n");
 
 	printf("--> PRINT INT_MIN - 1: \n");
-	real = printf("total is %d %%", INT_MIN - 1);
+	real = printf("total is %d %%", INT_MIN);
 	printf("\n");
-	dup = ft_printf("total is %d %%", INT_MIN - 1); 
+	dup = ft_printf("total is %d %%", INT_MIN ); 
 	printf("\n");
 	printf("real = %d\ndup = %d\n", real, dup);
 	printf("\n");
