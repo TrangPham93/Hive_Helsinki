@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test3.c                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 11:15:37 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/28 13:31:18 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/05 18:09:44 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/13 14:56:27 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-
-void	test3(void)
-
+int	ft_toupper(int c)
 {
-	char	*nextline;
-	int		fd;
-	int		count;
-
-	fd = open("not_exist.txt", O_RDONLY);
-	count = 0;
-	while (1)
-	{
-		nextline = get_next_line(fd);
-		if (!nextline)
-		{
-			printf("EOF! Could not get next line\n");
-			break ;
-		}
-		count++;
-		printf("return line [%d]:%s\n", count, nextline);
-		free(nextline);
-	}
-	close(fd);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

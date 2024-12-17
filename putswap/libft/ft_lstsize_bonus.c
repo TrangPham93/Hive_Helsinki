@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test1.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 11:06:28 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/28 13:32:12 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/12 13:46:48 by trpham            #+#    #+#             */
+/*   Updated: 2024/11/13 21:54:25 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-void	test1(void)
+int	ft_lstsize(t_list *lst)
 {
-	char	*nextline;
-	int		fd;
-	int		count;
+	int	count;
 
-	fd = open("text1.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("Error! Could not open file\n");
-		exit (-1);
-	}
 	count = 0;
-	while (1)
+	while (lst)
 	{
-		nextline = get_next_line(fd);
-		if (!nextline)
-		{
-			printf("EOF! Could not get next line\n");
-			break ;
-		}
 		count++;
-		printf("return line [%d]:%s\n", count, nextline);
-		free(nextline);
+		lst = lst->next;
 	}
-	close(fd);
+	return (count);
 }
