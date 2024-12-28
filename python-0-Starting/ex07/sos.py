@@ -12,13 +12,13 @@ def ft_sos(s):
 					"2": "..--- ", "3": "...-- ", "4": "....- ", "5": "..... ",
 					"6": "-.... ", "7": "--... ", "8": "---.. ", "9": "----. ",
 					"0": "----- "}
-	for c in s:
-		result = [result.append(NESTED_MORSE[i]) if c.upper() == i for i in NESTED_MORSE.keys()]
-	
-	for i in NESTED_MORSE.keys():
-		if s.upper() == i:
-			return NESTED_MORSE[i]
-
+	result = ''
+	for c in s.upper():
+		if c not in NESTED_MORSE:
+			raise AssertionError("the arguments are bad")
+		result += NESTED_MORSE[c]
+	return result[:-1]
+			
 
 def main():
 	if len(sys.argv) != 2:
@@ -26,11 +26,10 @@ def main():
 	else:
 		try:
 			my_str = sys.argv[1]
-			# for i in my_str:
-			result = ft_sos(i)
+			result = ft_sos(my_str)
 			print(result)
-		except ValueError:
-			print("AssertionError: the arguments are bad")
+		except AssertionError as e:
+			print(f"AssertionError: {e}")
 			return
 
 
