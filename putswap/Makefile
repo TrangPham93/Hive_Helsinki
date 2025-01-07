@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:30:26 by trpham            #+#    #+#              #
-#    Updated: 2024/12/13 10:55:22 by trpham           ###   ########.fr        #
+#    Updated: 2025/01/07 13:43:03 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,22 +19,26 @@ OBJS = $(SRCS:%.c=%.o)
 
 NAME = libftpushswap.a
 
-LIBFT = libft/libft.a
+LIBFT_NAME = ./libft/libft.a
+LIBFT_PATH = ./libft
 
-all: $(NAME)
+all: $(LIBFT_NAME) $(NAME)
 
 %.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $^
+$(LIBFT_NAME):
+	@make -C $(LIBFT_PATH)
 
-$(LIBFT):
-	make -C libft
+$(NAME): $(LIBFT_NAME) $(OBJS)
+	ar rcs $(NAME) $^ 
+
 clean:
+	@make clean -C $(LIBFT_PATH)
 	rm -f $(OBJS)
 
 fclean: clean
+	@make fclean -C $(LIBFT_PATH)
 	rm -f  $(NAME)
 
 re: fclean all

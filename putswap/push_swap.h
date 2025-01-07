@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:41:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/07 11:43:50 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:26:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_node
 {
-	void			*content;
+	char			*content;
+	int	index;
 	struct s_node	*next;
 	struct s_node	*prev;
 	
