@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/08 14:46:30 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:43:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,17 @@
 static t_node	*ft_doubly_lstnew(int content);
 static int ft_is_valid_number(char	*str);
 
-// int	ft_atoi(const char *nptr)
-// {
-// 	int			i;
-// 	long long	result;
-// 	int			sign;
-
-// 	i = 0;
-// 	result = 0;
-// 	sign = 1;
-// 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-// 		i++;
-// 	if (nptr[i] == '-' || nptr[i] == '+')
-// 	{
-// 		if (nptr[i] == '-')
-// 			sign = -1;
-// 		i++;
-// 	}
-// 	while (nptr[i] >= '0' && nptr[i] <= '9')
-// 	{
-// 		result = result * 10 + (nptr[i] - '0');
-// 		i++;
-// 	}
-// 	if (result * sign > INT_MAX)
-// 		return (-1);
-// 	else if (result * sign < INT_MIN)
-// 		return (0);
-// 	return (result * sign);
-// }
-
 int	main(int argc, char *argv[])
 {
 	int		i;
-	t_node	*lst;
+	t_node	*head;
 	t_node	*new;
-	t_node	*current;
+	t_node	*lst;
 	int		num;
 
 	i = 0;
 	lst = NULL;
-	current = NULL;
+	head = NULL;
 	if (argc == 1)
 		return (1);
 	else if (argc > 1)
@@ -66,10 +37,10 @@ int	main(int argc, char *argv[])
 			{
 				num = ft_atoi(argv[i]);
 				new = ft_doubly_lstnew(num);
-				if (!lst)
+				if (!head)
 				{
-					lst = new;
-					current = lst;
+					head = new;
+					lst = head;
 				}
 				else
 				{
@@ -80,26 +51,39 @@ int	main(int argc, char *argv[])
 			}
 			else
 			{
-				printf("Error");
-				while (lst)
+				printf("Error\n");
+				while (head)
 				{
-					current = lst;
-					lst = lst->next;
-					free(current);
+					lst = head;
+					head = head->next;
+					free(lst);
 				}
 				return (-1);
 			}
 		}
 	}
-	else
-		printf("Error: give a list of integer");
-	while (current)
+	printf("Before swap:\n");
+	lst = head;
+	while (lst)
 	{
-		lst = current;
-		printf("%d\n", lst->content);
-		current = current->next;
+		printf("%d ", lst->content);
+		lst = lst->next;
+	}
+	printf("--> Print successfully\n");
+	head = swap_stack(head);
+	lst = head;
+	printf("After swap:\n");
+	while (lst)
+	{
+		printf("%d ", lst->content);
+		lst = lst->next;
+	}
+	printf("--> Print successfully\n");
+	while (head)
+	{
+		lst = head;
+		head = head->next;
 		free(lst);
-
 	}
 	return (0);
 }

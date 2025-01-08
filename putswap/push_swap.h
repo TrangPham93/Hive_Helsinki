@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:41:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/08 13:36:14 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:15:18 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
+
+t_node *swap_stack(t_node *lst);
 
 #endif
