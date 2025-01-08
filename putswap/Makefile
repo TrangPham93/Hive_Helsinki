@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:30:26 by trpham            #+#    #+#              #
-#    Updated: 2025/01/07 13:43:03 by trpham           ###   ########.fr        #
+#    Updated: 2025/01/08 12:28:57 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ SRCS = push_swap.c
 
 OBJS = $(SRCS:%.c=%.o)
 
-NAME = libftpushswap.a
+NAME = lib_push_swap #create executable instead of static library
 
-LIBFT_NAME = ./libft/libft.a
+LIBFT_NAME = libft.a
 LIBFT_PATH = ./libft
 
 all: $(LIBFT_NAME) $(NAME)
@@ -30,8 +30,9 @@ all: $(LIBFT_NAME) $(NAME)
 $(LIBFT_NAME):
 	@make -C $(LIBFT_PATH)
 
-$(NAME): $(LIBFT_NAME) $(OBJS)
-	ar rcs $(NAME) $^ 
+$(NAME): $(OBJS) $(LIBFT_PATH)/$(LIBFT_NAME)
+	$(CC) $(CFLAGS) $^ -o $@
+#	ar rcs $(NAME) $^ 
 
 clean:
 	@make clean -C $(LIBFT_PATH)
