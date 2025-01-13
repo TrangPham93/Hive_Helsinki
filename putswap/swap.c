@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:09:00 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/13 18:12:51 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/13 22:53:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	node_lst_size(t_node *lst)
 t_node *swap_stack(t_node *lst)
 {
 	int	len;
-	t_node	*node1 = NULL;
-	t_node	*node2 = NULL;
+	t_node	*node1;
+	t_node	*node2;
 
+	node1 = NULL;
+	node2 = NULL;
 	// check if the length is at least 2
 	if (lst == NULL || lst->next == NULL)
 		return (NULL);
@@ -42,9 +44,9 @@ t_node *swap_stack(t_node *lst)
 
 	// set value for node1 and node2
 	node1 = lst;
-	printf("Value of Node1 :%d\n",node1->content);
+	// printf("Value of Node1 :%d\n",node1->content);
 	node2 = lst->next;
-	printf("Value of Node2 :%d\n",node2->content);
+	// printf("Value of Node2 :%d\n",node2->content);
 
 	// swap, but need to ask for more robust option
 	node1->next = node2->next;
@@ -56,6 +58,27 @@ t_node *swap_stack(t_node *lst)
 
 t_node	*rotate_stack(t_node *lst)
 {
+	t_node	*temp = NULL;
+	t_node	*head = NULL;
+
+	
+	if (lst == NULL)
+		return (NULL);
+	
+	head = lst;
+	// printf("The head value :%d\n", head->content);
+	lst = lst->next;
+	// printf("The new head value :%d\n", lst->content);
+	lst->prev = NULL;
+	temp = lst;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+		// printf("The lst value :%d\n", temp->content);
+	}
+	temp->next = head;
+	head->prev = temp;
+	head->next = NULL;
 	
 	return (lst);
 }
