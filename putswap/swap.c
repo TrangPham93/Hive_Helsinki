@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:09:00 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/13 22:53:09 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/14 12:03:39 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,25 @@ t_node	*rotate_stack(t_node *lst)
 	head->next = NULL;
 	
 	return (lst);
+}
+t_node	*reverse_rotate(t_node *lst)
+{
+	t_node	*temp;
+	t_node	*tail;
+
+	temp = NULL;
+	tail = NULL;
+	if (lst == NULL)
+		return (NULL);
+	temp = lst;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	tail = temp;
+	// printf("%d\n", tail->content);
+	temp->prev->next = NULL;
+	tail->next = lst;
+	tail->prev = NULL;
+	return (tail);
 }

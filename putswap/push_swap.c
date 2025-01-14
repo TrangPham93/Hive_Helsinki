@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/13 22:51:33 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/14 11:42:45 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,17 @@ int	main(int argc, char *argv[])
 	}
 	printf("--> Print successfully\n");
 
+	
+	printf("Reversed ROTATION:\n");
+	// lst = head;
+	head = reverse_rotate(head);
+	lst = head;
+	while (lst)
+	{
+		printf("%d ", lst->content);
+		lst = lst->next;
+	}
+	printf("--> Print successfully\n");
 	
 	lst = head;
 	while (head)

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 10:41:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/14 12:06:51 by trpham           ###   ########.fr       */
+/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/14 13:21:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./libft/libft.h"
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_node
+void	ft_push(t_node *stack_1, t_node *stack_2)
 {
-	int				content;
-	int				index;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+	t_node	*head;
+	// t_node	*temp;
 
-t_node *swap_stack(t_node *lst);
-t_node	*rotate_stack(t_node *lst);
-t_node	*reverse_rotate(t_node *lst);
-void	ft_push(t_node *stack1, t_node *stack2);
-
-
-
-#endif
+	head = NULL;
+	// temp = NULL;
+	if (stack_2 == NULL)
+		return ;
+	head = stack_2;
+	head->next = stack_1;
+	stack_1->prev = head;
+	stack_1 = head;
+	stack_2 = stack_2->next;
+	
+	
+}
