@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/14 11:42:45 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:59:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int argc, char *argv[])
 	lst = NULL;
 	head = NULL;
 	if (argc == 1)
-		return (1);
+		return (-1);
+	// handle the argument and return a list
 	else if (argc > 1)
 	{
 		while (++i < argc)
@@ -62,14 +63,14 @@ int	main(int argc, char *argv[])
 			}
 		}
 	}
-	printf("Before swap:\n");
+	printf("Print original lst:\n");
 	lst = head;
 	while (lst)
 	{
 		printf("%d ", lst->content);
 		lst = lst->next;
 	}
-	printf("--> Print successfully\n");
+	// printf("--> Print successfully\n");
 	head = swap_stack(head);
 	lst = head;
 	printf("After swap:\n");
@@ -78,7 +79,7 @@ int	main(int argc, char *argv[])
 		printf("%d ", lst->content);
 		lst = lst->next;
 	}
-	printf("--> Print successfully\n");
+	printf("\n");
 	
 	printf("ROTATION:\n");
 	// lst = head;
@@ -89,7 +90,7 @@ int	main(int argc, char *argv[])
 		printf("%d ", lst->content);
 		lst = lst->next;
 	}
-	printf("--> Print successfully\n");
+	printf("\n");
 
 	
 	printf("Reversed ROTATION:\n");
@@ -101,7 +102,7 @@ int	main(int argc, char *argv[])
 		printf("%d ", lst->content);
 		lst = lst->next;
 	}
-	printf("--> Print successfully\n");
+	printf("\n");
 	
 	lst = head;
 	while (head)
@@ -142,3 +143,4 @@ static int ft_is_valid_number(char	*str)
 	}
 	return (0);		
 }
+

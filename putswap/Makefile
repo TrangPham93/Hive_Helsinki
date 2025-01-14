@@ -6,14 +6,15 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:30:26 by trpham            #+#    #+#              #
-#    Updated: 2025/01/08 17:15:53 by trpham           ###   ########.fr        #
+#    Updated: 2025/01/13 18:14:36 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = push_swap.c \ swap.c
+SRCS = push_swap.c \
+		swap.c
 
 OBJS = $(SRCS:%.c=%.o)
 
