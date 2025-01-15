@@ -6,14 +6,14 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 16:43:49 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:17:21 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdint.h>
 
-char *ft_handle_input(argv)
+void ft_handle_input(int argc, char *argv[])
 {
 	// t_node	lst;
 	// char	**int_arr;
@@ -53,7 +53,7 @@ int	main(int argc, char *argv[])
 	// handle the argument and return a list
 	else if (argc > 1)
 	{
-		str = ft_handle_input(argv);
+		ft_handle_input(argc, argv);
 
 
 		// while (++i < argc)
