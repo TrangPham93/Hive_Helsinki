@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/14 20:59:52 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 09:52:37 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 static t_node	*ft_doubly_lstnew(int content);
 static int ft_is_valid_number(char	*str);
+static void print_list(t_node *lst);
+static void free_list(t_node *lst);
+
 
 int	main(int argc, char *argv[])
 {
@@ -65,52 +68,29 @@ int	main(int argc, char *argv[])
 	}
 	printf("Print original lst:\n");
 	lst = head;
-	while (lst)
-	{
-		printf("%d ", lst->content);
-		lst = lst->next;
-	}
-	// printf("--> Print successfully\n");
+	print_list(lst);
 	head = swap_stack(head);
 	lst = head;
 	printf("After swap:\n");
-	while (lst)
-	{
-		printf("%d ", lst->content);
-		lst = lst->next;
-	}
+	print_list(lst);
 	printf("\n");
 	
 	printf("ROTATION:\n");
-	// lst = head;
 	head = rotate_stack(head);
 	lst = head;
-	while (lst)
-	{
-		printf("%d ", lst->content);
-		lst = lst->next;
-	}
+	print_list(lst);
 	printf("\n");
 
 	
 	printf("Reversed ROTATION:\n");
-	// lst = head;
 	head = reverse_rotate(head);
 	lst = head;
-	while (lst)
-	{
-		printf("%d ", lst->content);
-		lst = lst->next;
-	}
+	print_list(lst);
 	printf("\n");
 	
 	lst = head;
-	while (head)
-	{
-		lst = head;
-		head = head->next;
-		free(lst);
-	}
+	free_list(lst);
+	
 	return (0);
 }
 
@@ -143,4 +123,25 @@ static int ft_is_valid_number(char	*str)
 	}
 	return (0);		
 }
+static void print_list(t_node *lst)
+{
+	if (!lst)
+		return ;
+	while (lst)
+		{
+			printf("%d ", lst->content);
+			lst = lst->next;
+		}
+}
+static void free_list(t_node *lst)
+{
+	t_node	*temp;
 
+	temp = lst;
+	while (lst)
+	{
+		temp = lst;
+		lst = lst->next;
+		free(temp);
+	}
+}
