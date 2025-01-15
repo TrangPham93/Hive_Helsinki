@@ -6,26 +6,40 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/14 13:21:00 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 11:57:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_node *stack_1, t_node *stack_2)
+void	push_stack(t_node **stack_1, t_node **stack_2)
 {
 	t_node	*head;
 	// t_node	*temp;
 
-	head = NULL;
+	// head = NULL;
 	// temp = NULL;
-	if (stack_2 == NULL)
+	if (*stack_1 == NULL)
 		return ;
-	head = stack_2;
-	head->next = stack_1;
-	stack_1->prev = head;
-	stack_1 = head;
-	stack_2 = stack_2->next;
+	head = *stack_1;
+	// printf("%d\n", head->content);
+	*stack_1 = (*stack_1)->next;
+	(*stack_1)->prev = NULL;
+	// printf("%d\n", stack_1->content);
+
+	// temp = *stack_2;
+	// head->next = temp;
+	// temp->prev->next = temp;
+	// (*stack_2)->prev = head;
+	// printf("%d\n", head->content);
+	// head->next = *stack_2;
+	head->next = (*stack_2);
+
+	if (*stack_2)
+		(*stack_2)->prev = head;
+	head->prev = NULL;
+	*stack_2 = head;
+	// stack_1 = stack_1->next;
 	
 	
 }

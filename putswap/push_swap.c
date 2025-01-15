@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 09:52:37 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 11:46:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ int	main(int argc, char *argv[])
 	t_node	*head;
 	t_node	*new;
 	t_node	*lst;
+	t_node	*stack_b;
 	int		num;
 
 	i = 0;
 	lst = NULL;
 	head = NULL;
+	stack_b = NULL;
 	if (argc == 1)
 		return (-1);
 	// handle the argument and return a list
@@ -56,37 +58,37 @@ int	main(int argc, char *argv[])
 			else
 			{
 				printf("Error\n");
-				while (head)
-				{
-					lst = head;
-					head = head->next;
-					free(lst);
-				}
+				free_list(head);
 				return (-1);
 			}
 		}
 	}
 	printf("Print original lst:\n");
-	lst = head;
-	print_list(lst);
+	// lst = head;
+	print_list(head);
+	
 	head = swap_stack(head);
-	lst = head;
+	// lst = head;
 	printf("After swap:\n");
-	print_list(lst);
-	printf("\n");
+	print_list(head);
 	
 	printf("ROTATION:\n");
 	head = rotate_stack(head);
-	lst = head;
-	print_list(lst);
-	printf("\n");
+	// lst = head;
+	print_list(head);
 
 	
 	printf("Reversed ROTATION:\n");
 	head = reverse_rotate(head);
-	lst = head;
-	print_list(lst);
-	printf("\n");
+	// lst = head;
+	print_list(head);
+
+	printf("PUSH\n");
+	// print_list(head);
+	push_stack(&head, &stack_b);
+	print_list(head);
+	print_list(stack_b);
+
 	
 	lst = head;
 	free_list(lst);
@@ -132,6 +134,7 @@ static void print_list(t_node *lst)
 			printf("%d ", lst->content);
 			lst = lst->next;
 		}
+	printf("\n");
 }
 static void free_list(t_node *lst)
 {
