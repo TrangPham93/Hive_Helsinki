@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 11:57:11 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 11:59:05 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,16 @@
 void	push_stack(t_node **stack_1, t_node **stack_2)
 {
 	t_node	*head;
-	// t_node	*temp;
 
-	// head = NULL;
-	// temp = NULL;
 	if (*stack_1 == NULL)
 		return ;
 	head = *stack_1;
-	// printf("%d\n", head->content);
 	*stack_1 = (*stack_1)->next;
 	(*stack_1)->prev = NULL;
-	// printf("%d\n", stack_1->content);
-
-	// temp = *stack_2;
-	// head->next = temp;
-	// temp->prev->next = temp;
-	// (*stack_2)->prev = head;
-	// printf("%d\n", head->content);
-	// head->next = *stack_2;
+	
 	head->next = (*stack_2);
-
 	if (*stack_2)
 		(*stack_2)->prev = head;
 	head->prev = NULL;
 	*stack_2 = head;
-	// stack_1 = stack_1->next;
-	
-	
 }
