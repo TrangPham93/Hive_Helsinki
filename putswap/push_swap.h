@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:41:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 11:33:02 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:55:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct s_node
 t_node *swap_stack(t_node *lst);
 t_node	*rotate_stack(t_node *lst);
 t_node	*reverse_rotate(t_node *lst);
+t_node	*ft_doubly_lstnew(int content);
+int		ft_is_valid_number(char	*str);
+void 	print_list(t_node *lst);
+void 	free_list(t_node *lst);
 void	push_stack(t_node **stack_1, t_node **stack_2);
 
 

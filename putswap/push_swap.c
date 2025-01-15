@@ -6,97 +6,114 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 11:46:44 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/15 16:43:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdint.h>
 
-static t_node	*ft_doubly_lstnew(int content);
-static int ft_is_valid_number(char	*str);
-static void print_list(t_node *lst);
-static void free_list(t_node *lst);
+char *ft_handle_input(argv)
+{
+	// t_node	lst;
+	// char	**int_arr;
 
+	// if (argc == 2 && argv[1] != " ")
+	// 	int_arr = ft_arg_split(argv[1]);
+	// argc += 1;
+	return (argv);
+}
+
+// char **ft_arg_split(char	*str)
+// {
+// 	char	**int_arr;
+
+// 	int_arr = ft_split(str, ' ');
+// 	return (int_arr);
+// }
 
 int	main(int argc, char *argv[])
 {
 	int		i;
-	t_node	*head;
-	t_node	*new;
+	t_node	*stack_a;
+	// t_node	*new;
 	t_node	*lst;
 	t_node	*stack_b;
-	int		num;
+	// int		num;
+	char *str = NULL;
 
 	i = 0;
 	lst = NULL;
-	head = NULL;
+	stack_a = NULL;
 	stack_b = NULL;
+
+	// if no parameters are specified, display nothing
 	if (argc == 1)
 		return (-1);
 	// handle the argument and return a list
 	else if (argc > 1)
 	{
-		while (++i < argc)
-		{
-			if (ft_is_valid_number(argv[i]) == 0)
-			{
-				num = ft_atoi(argv[i]);
-				new = ft_doubly_lstnew(num);
-				if (!head)
-				{
-					head = new;
-					lst = head;
-				}
-				else
-				{
-					lst->next = new;
-					new->prev = lst;
-					lst = lst->next;
-				}
-			}
-			else
-			{
-				printf("Error\n");
-				free_list(head);
-				return (-1);
-			}
-		}
+		str = ft_handle_input(argv);
+
+
+		// while (++i < argc)
+		// {
+		// 	if (ft_is_valid_number(argv[i]) == 0)
+		// 	{
+		// 		num = ft_atoi(argv[i]);
+		// 		new = ft_doubly_lstnew(num);
+
+		// 		if (!head)
+		// 		{
+		// 			head = new;
+		// 			lst = head;
+		// 		}
+		// 		else
+		// 		{
+		// 			lst->next = new;
+		// 			new->prev = lst;
+		// 			lst = lst->next;
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		printf("Error\n");
+		// 		free_list(head);
+		// 		return (-1);
+		// 	}
+		// }
 	}
-	printf("Print original lst:\n");
-	// lst = head;
-	print_list(head);
-	
-	head = swap_stack(head);
-	// lst = head;
-	printf("After swap:\n");
-	print_list(head);
-	
-	printf("ROTATION:\n");
-	head = rotate_stack(head);
-	// lst = head;
-	print_list(head);
-
-	
-	printf("Reversed ROTATION:\n");
-	head = reverse_rotate(head);
-	// lst = head;
-	print_list(head);
-
-	printf("PUSH\n");
+	printf("%s\n", str);
+	// printf("Print original lst:\n");
+	// // lst = head;
 	// print_list(head);
-	push_stack(&head, &stack_b);
-	print_list(head);
-	print_list(stack_b);
+	
+	// head = swap_stack(head);
+	// printf("After swap:\n");
+	// print_list(head);
+	
+	// printf("ROTATION:\n");
+	// head = rotate_stack(head);
+	// print_list(head);
 
 	
-	lst = head;
-	free_list(lst);
+	// printf("Reversed ROTATION:\n");
+	// head = reverse_rotate(head);
+	// print_list(head);
+
+	// printf("PUSH\n");
+	// push_stack(&head, &stack_b);
+	// print_list(head);
+	// print_list(stack_b);
+
+	
+	// lst = head;
+	// free_list(lst);
 	
 	return (0);
 }
 
-static t_node	*ft_doubly_lstnew(int content)
+t_node	*ft_doubly_lstnew(int content)
 {
 	t_node	*temp;
 
@@ -109,7 +126,7 @@ static t_node	*ft_doubly_lstnew(int content)
 	return (temp);
 }
 
-static int ft_is_valid_number(char	*str)
+int ft_is_valid_number(char	*str)
 {
 	int	i;
 
@@ -125,7 +142,7 @@ static int ft_is_valid_number(char	*str)
 	}
 	return (0);		
 }
-static void print_list(t_node *lst)
+void print_list(t_node *lst)
 {
 	if (!lst)
 		return ;
@@ -136,7 +153,7 @@ static void print_list(t_node *lst)
 		}
 	printf("\n");
 }
-static void free_list(t_node *lst)
+void free_list(t_node *lst)
 {
 	t_node	*temp;
 
