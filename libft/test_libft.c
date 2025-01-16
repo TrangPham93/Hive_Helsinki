@@ -6,11 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:08:01 by trpham            #+#    #+#             */
-/*   Updated: 2024/11/18 11:18:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:34:46 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -1214,48 +1214,95 @@ void	test_ft_lstmap(void)
 	ft_lstclear(&newlst, del_f);
 	ft_lstclear(&a_list, del_f);
 }
-int main(void)
+int main(int argc, char *argv[])
 {
-	// test_ft_isalpha();
-	// test_ft_isdigit();
-	// test_ft_isalnum();
-	// test_ft_isascii();
-	// test_ft_isprint();
-	// test_ft_strlen();
-	// test_ft_memset();
-	// test_ft_bzero();
-	// test_ft_memcpy();
-	// test_ft_memmove();
-	// test_ft_strlcat();
-	// test_ft_strlcpy();
-	// test_ft_tolower();
-	// test_ft_toupper();
-	// test_ft_strchr();
-	// test_ft_strrchr();
-	// test_ft_strncmp();
-	// test_ft_memchr();
-	// test_ft_memcmp();
-	test_ft_strnstr();
-	// test_ft_atoi();
-	// test_ft_calloc();
-	// test_ft_strdup();
-	// test_ft_substr();
-	// test_ft_strjoin();
-	// test_ft_strtrim();
-	// test_ft_split();
-	// test_ft_itoa();
-	// test_ft_strmapi();
-	// test_ft_striteri();
-	// test_ft_putchar_ft();
-	// test_ft_putstr_fd();
-	// test_ft_putnbr_fd();
-	// test_ft_lstnew();
-	// test_ft_lstsize();
-	// test_ft_lstlast();
-	// test_ft_lstadd_front();
-	// test_ft_lstadd_back();
-	// test_ft_lstdelone();
-	// test_ft_lstclear();
-	// test_ft_lstiter();
+	if (argc < 2)
+	{
+		printf("Please choose a function");
+		return (-1);
+	}
+	if (strcmp(argv[1], "isalpha") == 0)
+		test_ft_isalpha();
+	
+	if (strcmp(argv[1], "isdigit") == 0)
+		test_ft_isdigit();
+	if (strcmp(argv[1], "isalnum") == 0)
+		test_ft_isalnum();
+	if (strcmp(argv[1], "isascii") == 0)
+		test_ft_isascii();
+	if (strcmp(argv[1], "isprint") == 0)
+		test_ft_isprint();
+	if (strcmp(argv[1], "strlen") == 0)
+		test_ft_strlen();
+	if (strcmp(argv[1], "memset") == 0)
+		test_ft_memset();
+	if (strcmp(argv[1], "bzero") == 0)
+		test_ft_bzero();
+	if (strcmp(argv[1], "memcpy") == 0)
+		test_ft_memcpy();
+	if (strcmp(argv[1], "memmove") == 0)
+		test_ft_memmove();
+	if (strcmp(argv[1], "strlcat") == 0)
+		test_ft_strlcat();
+	if (strcmp(argv[1], "strlcpy") == 0)
+		test_ft_strlcpy();
+	if (strcmp(argv[1], "tolower") == 0)
+		test_ft_tolower();
+	if (strcmp(argv[1], "toupper") == 0)
+		test_ft_toupper();
+	if (strcmp(argv[1], "strchr") == 0)
+		test_ft_strchr();
+	if (strcmp(argv[1], "strrchr") == 0)
+		test_ft_strrchr();
+	if (strcmp(argv[1], "strncmp") == 0)
+		test_ft_strncmp();
+	if (strcmp(argv[1], "memchr") == 0)
+		test_ft_memchr();
+	if (strcmp(argv[1], "memcpy") == 0)
+		test_ft_memcmp();
+	if (strcmp(argv[1], "strnstr") == 0)
+		test_ft_strnstr();
+	if (strcmp(argv[1], "atoi") == 0)
+		test_ft_atoi();
+	if (strcmp(argv[1], "calloc") == 0)
+		test_ft_calloc();
+	if (strcmp(argv[1], "strdup") == 0)
+		test_ft_strdup();
+	if (strcmp(argv[1], "substr") == 0)
+		test_ft_substr();
+	if (strcmp(argv[1], "strjoin") == 0)
+		test_ft_strjoin();
+	if (strcmp(argv[1], "strtrim") == 0)
+		test_ft_strtrim();
+	if (strcmp(argv[1], "split") == 0)
+		test_ft_split();
+	if (strcmp(argv[1], "itoa") == 0)
+		test_ft_itoa();
+	if (strcmp(argv[1], "strmapi") == 0)
+		test_ft_strmapi();
+	if (strcmp(argv[1], "striteri") == 0)
+		test_ft_striteri();
+	if (strcmp(argv[1], "putcharft") == 0)
+		test_ft_putchar_ft();
+	if (strcmp(argv[1], "putstrfd") == 0)
+		test_ft_putstr_fd();
+	if (strcmp(argv[1], "putnbr_fd") == 0)
+		test_ft_putnbr_fd();
+	if (strcmp(argv[1], "lstnew") == 0)
+		test_ft_lstnew();
+	if (strcmp(argv[1], "lstsize") == 0)
+		test_ft_lstsize();
+	if (strcmp(argv[1], "lstlast") == 0)
+		test_ft_lstlast();
+	if (strcmp(argv[1], "lstaddfront") == 0)
+		test_ft_lstadd_front();
+	if (strcmp(argv[1], "lstaddback") == 0)
+		test_ft_lstadd_back();
+	if (strcmp(argv[1], "lstdelone") == 0)
+		test_ft_lstdelone();
+	if (strcmp(argv[1], "lstclear") == 0)
+		test_ft_lstclear();
+	if (strcmp(argv[1], "lstiter") == 0)
+		test_ft_lstiter();
 	return(0);
 }

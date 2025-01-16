@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2025/01/16 16:39:04 by trpham           ###   ########.fr        #
+#    Updated: 2025/01/16 18:00:00 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = sources
 LIBFT_DIR = $(SRC_DIR)/libft
 PRINTF_DIR = $(SRC_DIR)/ft_printf
+GNL_DIR = $(SRC_DIR)/get_next_line
 
 SRCS = $(LIBFT_DIR)/ft_isalpha.c \
        $(LIBFT_DIR)/ft_isdigit.c \
@@ -56,7 +57,8 @@ SRCS = $(LIBFT_DIR)/ft_isalpha.c \
 		$(PRINTF_DIR)/ft_puthex_fd.c \
 		$(PRINTF_DIR)/ft_putnbr_unsigned.c \
 		$(PRINTF_DIR)/ft_putptr_fd.c \
-		$(PRINTF_DIR)/ft_putstr_fd.c
+		$(PRINTF_DIR)/ft_putstr_fd.c \
+		$(GNL_DIR)/get_next_line.c 
 
 SRCS_BONUS = $(LIBFT_DIR)/ft_lstnew_bonus.c \
               $(LIBFT_DIR)/ft_lstadd_front_bonus.c \
@@ -72,31 +74,19 @@ OBJ_DIR = objs
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 OBJS_BONUS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS_BONUS))
 
-#  .a is a static library, which mean the files are combined at compiling time
 NAME = libft.a
+
+# A marker file used to indicate whether bonus files were included.
 BONUS_NAME = .bonus
 
-
-
-# Rule to create the .c files to .o files
-# Compile or assemble the source files, but do not link. The linking stage simply is not done.
-# The ultimate output is in the form of an object file for each source file.
-# $@ is the name of the target being generated, and $< the first prerequisite
-# -o file Place the primary output in file file, 
+# Creates the necessary directories for the object files
+# compile the source files $< into object files $@
 # If -o is not specified, the default is to put an executable file in a.out
-
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(@D)
+	@mkdir -p $(@D) 
 	$(CC) $(CFLAGS) -I$(SRC_DIR) -c $< -o $@
-
-$(NAME): $(OBJS)
-	ar rcs $@ $^
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-	mkdir -p $(OBJ_DIR)/libft
-	mkdir -p $(OBJ_DIR)/ft_printf
-
+	
+# Uses the ar command to create the archive ($@) from the object files $^
 # Create the actual library
 # ar maintain archive libraries, which is a collection of files, typically object files.
 #  create a new library, add members to an existing library, delete members from a library,
@@ -106,6 +96,9 @@ $(OBJ_DIR):
 #  -s Regenerates the external symbol table regardless of whether the command modifies the archive.
 #  -rcs rcs can be seen to mean replace, create, sort
 # $^ prequisite files, which mean the OBJECT
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $^
+
 all: $(NAME)
 
 bonus: $(OBJ_DIR) $(BONUS_NAME) 
@@ -114,20 +107,24 @@ $(BONUS_NAME): $(OBJS) $(OBJS_BONUS)
 	ar rcs $(NAME) $^
 	touch $(BONUS_NAME)
 
-# Clean: removes the output of other targets
 clean:
 	rm -rf $(OBJ_DIR)
 
-# Fclean: remove all generrated files
 fclean: clean
 	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
+# The purpose of these commands is to compile the source files into object files and then link those object files into a shared library (libft.so).
+# Shared libraries (.so files) can be dynamically loaded by programs at runtime, 
+# which is different from static libraries (.a files) that are included at compile time.
+
 # so:
 # 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
 # 	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_BONUS)
 
+# Declares these targets as phony, meaning they do not represent files. 
+# This prevents conflicts if files with these names exist.
 .PHONY: all clean fclean re bonus
 
 

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:39:30 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 12:35:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:57:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if ((unsigned char)*s == (unsigned char)c)
