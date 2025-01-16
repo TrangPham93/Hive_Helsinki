@@ -6,66 +6,77 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 15:05:22 by trpham            #+#    #+#              #
-#    Updated: 2024/11/18 19:23:25 by trpham           ###   ########.fr        #
+#    Updated: 2025/01/16 16:39:04 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalpha.c \
-       ft_isdigit.c \
-       ft_isalnum.c \
-       ft_isascii.c \
-       ft_isprint.c \
-       ft_strlen.c \
-       ft_memset.c \
-       ft_bzero.c \
-       ft_memcpy.c \
-       ft_memmove.c \
-       ft_strlcat.c \
-       ft_strlcpy.c \
-       ft_toupper.c \
-       ft_tolower.c \
-       ft_strchr.c \
-       ft_strrchr.c \
-       ft_strncmp.c \
-       ft_memchr.c \
-       ft_memcmp.c \
-       ft_strnstr.c \
-       ft_atoi.c \
-       ft_calloc.c \
-       ft_strdup.c \
-       ft_substr.c \
-       ft_strjoin.c \
-       ft_strtrim.c \
-       ft_split.c \
-       ft_itoa.c \
-       ft_strmapi.c \
-       ft_striteri.c \
-       ft_putchar_fd.c \
-       ft_putstr_fd.c \
-       ft_putendl_fd.c \
-       ft_putnbr_fd.c
+SRC_DIR = sources
+LIBFT_DIR = $(SRC_DIR)/libft
+PRINTF_DIR = $(SRC_DIR)/ft_printf
 
-SRCS_BONUS = ft_lstnew_bonus.c \
-              ft_lstadd_front_bonus.c \
-              ft_lstsize_bonus.c \
-              ft_lstlast_bonus.c \
-              ft_lstadd_back_bonus.c \
-              ft_lstdelone_bonus.c \
-              ft_lstiter_bonus.c \
-              ft_lstclear_bonus.c \
-              ft_lstmap_bonus.c
+SRCS = $(LIBFT_DIR)/ft_isalpha.c \
+       $(LIBFT_DIR)/ft_isdigit.c \
+       $(LIBFT_DIR)/ft_isalnum.c \
+       $(LIBFT_DIR)/ft_isascii.c \
+       $(LIBFT_DIR)/ft_isprint.c \
+       $(LIBFT_DIR)/ft_strlen.c \
+       $(LIBFT_DIR)/ft_memset.c \
+       $(LIBFT_DIR)/ft_bzero.c \
+       $(LIBFT_DIR)/ft_memcpy.c \
+       $(LIBFT_DIR)/ft_memmove.c \
+       $(LIBFT_DIR)/ft_strlcat.c \
+       $(LIBFT_DIR)/ft_strlcpy.c \
+       $(LIBFT_DIR)/ft_toupper.c \
+       $(LIBFT_DIR)/ft_tolower.c \
+       $(LIBFT_DIR)/ft_strchr.c \
+       $(LIBFT_DIR)/ft_strrchr.c \
+       $(LIBFT_DIR)/ft_strncmp.c \
+       $(LIBFT_DIR)/ft_memchr.c \
+       $(LIBFT_DIR)/ft_memcmp.c \
+       $(LIBFT_DIR)/ft_strnstr.c \
+       $(LIBFT_DIR)/ft_atoi.c \
+       $(LIBFT_DIR)/ft_calloc.c \
+       $(LIBFT_DIR)/ft_strdup.c \
+       $(LIBFT_DIR)/ft_substr.c \
+       $(LIBFT_DIR)/ft_strjoin.c \
+       $(LIBFT_DIR)/ft_strtrim.c \
+       $(LIBFT_DIR)/ft_split.c \
+       $(LIBFT_DIR)/ft_itoa.c \
+       $(LIBFT_DIR)/ft_strmapi.c \
+       $(LIBFT_DIR)/ft_striteri.c \
+       $(LIBFT_DIR)/ft_putchar_fd.c \
+       $(LIBFT_DIR)/ft_putstr_fd.c \
+       $(LIBFT_DIR)/ft_putendl_fd.c \
+       $(LIBFT_DIR)/ft_putnbr_fd.c \
+       $(PRINTF_DIR)/ft_putchar_fd.c \
+		$(PRINTF_DIR)/ft_putnbr_fd.c \
+		$(PRINTF_DIR)/ft_puthex_fd.c \
+		$(PRINTF_DIR)/ft_putnbr_unsigned.c \
+		$(PRINTF_DIR)/ft_putptr_fd.c \
+		$(PRINTF_DIR)/ft_putstr_fd.c
 
-OBJECT = $(SRCS:%.c=%.o)
-OBJECT_BONUS = $(SRCS_BONUS:%.c=%.o)
+SRCS_BONUS = $(LIBFT_DIR)/ft_lstnew_bonus.c \
+              $(LIBFT_DIR)/ft_lstadd_front_bonus.c \
+              $(LIBFT_DIR)/ft_lstsize_bonus.c \
+              $(LIBFT_DIR)/ft_lstlast_bonus.c \
+              $(LIBFT_DIR)/ft_lstadd_back_bonus.c \
+              $(LIBFT_DIR)/ft_lstdelone_bonus.c \
+              $(LIBFT_DIR)/ft_lstiter_bonus.c \
+              $(LIBFT_DIR)/ft_lstclear_bonus.c \
+              $(LIBFT_DIR)/ft_lstmap_bonus.c
+
+OBJ_DIR = objs
+OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+OBJS_BONUS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS_BONUS))
 
 #  .a is a static library, which mean the files are combined at compiling time
 NAME = libft.a
 BONUS_NAME = .bonus
 
-all:  $(NAME)
+
 
 # Rule to create the .c files to .o files
 # Compile or assemble the source files, but do not link. The linking stage simply is not done.
@@ -74,8 +85,17 @@ all:  $(NAME)
 # -o file Place the primary output in file file, 
 # If -o is not specified, the default is to put an executable file in a.out
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -I$(SRC_DIR) -c $< -o $@
+
+$(NAME): $(OBJS)
+	ar rcs $@ $^
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)/libft
+	mkdir -p $(OBJ_DIR)/ft_printf
 
 # Create the actual library
 # ar maintain archive libraries, which is a collection of files, typically object files.
@@ -86,19 +106,17 @@ all:  $(NAME)
 #  -s Regenerates the external symbol table regardless of whether the command modifies the archive.
 #  -rcs rcs can be seen to mean replace, create, sort
 # $^ prequisite files, which mean the OBJECT
+all: $(NAME)
 
-$(NAME): $(OBJECT)
-	ar rcs $(NAME) $^
+bonus: $(OBJ_DIR) $(BONUS_NAME) 
 
-bonus: $(BONUS_NAME) 
-
-$(BONUS_NAME): $(OBJECT) $(OBJECT_BONUS)
+$(BONUS_NAME): $(OBJS) $(OBJS_BONUS)
 	ar rcs $(NAME) $^
 	touch $(BONUS_NAME)
 
 # Clean: removes the output of other targets
 clean:
-	rm -f $(OBJECT) $(OBJECT_BONUS)
+	rm -rf $(OBJ_DIR)
 
 # Fclean: remove all generrated files
 fclean: clean
@@ -106,9 +124,9 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJECT) $(OBJECT_BONUS)
+# so:
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_BONUS)
 
 .PHONY: all clean fclean re bonus
 
