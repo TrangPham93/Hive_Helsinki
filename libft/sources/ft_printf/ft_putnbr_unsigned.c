@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:58:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 15:35:57 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:17:13 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putnbr_unsigned(unsigned int nb, int fd)
 
 	count = 0;
 	if (nb >= 10)
-		count += ft_putnbr_fd(nb / 10, fd);
-	ft_putchar_fd(nb % 10 + '0', fd);
+		count += ft_putnbr_printf(nb / 10, fd);
+	ft_putchar_printf(nb % 10 + '0', fd);
 	return (count + 1);
 }

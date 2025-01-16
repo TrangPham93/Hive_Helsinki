@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 15:35:51 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:16:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	ft_puthex_fd(unsigned long nbr, int fd, char b)
 		return (-1);
 	if (nbr >= 16)
 		count += ft_puthex_fd(nbr / 16, fd, b);
-	ft_putchar_fd(base[nbr % 16], fd);
+	ft_putchar_printf(base[nbr % 16], fd);
 	return (count + 1);
 }
