@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/04 10:56:19 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 12:35:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#include "../../includes/libft.h"
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_node	*head;
+	size_t				count;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
+	if (!dest && !src)
+		return (dest);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	count = 0;
+	if (d < s)
+	{
+		while (count < n)
+		{
+			d[count] = s[count];
+			count++;
+		}
+	}
+	else
+	{
+		while (n--)
+			d[n] = s[n];
+	}
+	return (d);
 }

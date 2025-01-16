@@ -6,11 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:09:00 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 15:28:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:31:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "./libft/includes/libft.h"
+#include "./libft/includes/ft_printf.h"
 
 int	node_lst_size(t_node *lst)
 {

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/19 11:27:58 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 18:11:34 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
-{
-	t_node	*head;
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdint.h>
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
-}
+int	ft_printf(const char	*str, ...);
+int	ft_putchar_printf(char c, int fd);
+int	ft_putstr_printf(char *s, int fd);
+int	ft_putnbr_printf(int n, int fd);
+int	ft_putnbr_unsigned(unsigned int n, int fd);
+int	ft_puthex_fd(unsigned long nbr, int fd, char b);
+int	ft_putptr_fd(void *ptr, int fd);
+
+#endif

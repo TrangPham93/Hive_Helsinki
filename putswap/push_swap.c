@@ -6,25 +6,36 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:34:57 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 17:17:21 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:31:32 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "./libft/includes/libft.h"
+#include "./libft/includes/ft_printf.h"
 #include <stdint.h>
 
 void ft_handle_input(int argc, char *argv[])
 {
 	// t_node	lst;
-	// char	**int_arr;
+	int	i = 0;
+	char	**int_arr;
 
-	// if (argc == 2 && argv[1] != " ")
-	// 	int_arr = ft_arg_split(argv[1]);
+	printf("%d and %s\n", argc, argv[1]);
+	if (argc == 2 && *argv[1] == '\0')
+		return ;
+	int_arr = ft_split(argv[1], ' ');
 	// argc += 1;
-	return (argv);
+	while (int_arr[i])
+	{
+		printf("%s\n", int_arr[i]);
+		i++;
+	}
+	
+	
 }
 
-// char **ft_arg_split(char	*str)
+// char **ft_arg_split(char *str)
 // {
 // 	char	**int_arr;
 
@@ -34,18 +45,18 @@ void ft_handle_input(int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	int		i;
-	t_node	*stack_a;
+	// int		i;
+	// t_node	*stack_a;
 	// t_node	*new;
-	t_node	*lst;
-	t_node	*stack_b;
+	// t_node	*lst;
+	// t_node	*stack_b;
 	// int		num;
 	char *str = NULL;
 
-	i = 0;
-	lst = NULL;
-	stack_a = NULL;
-	stack_b = NULL;
+	// i = 0;
+	// lst = NULL;
+	// stack_a = NULL;
+	// stack_b = NULL;
 
 	// if no parameters are specified, display nothing
 	if (argc == 1)

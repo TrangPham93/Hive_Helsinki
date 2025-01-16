@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/01 16:40:20 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 17:56:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#include "../../includes/libft.h"
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
+size_t	ft_strlen(const char *s)
 {
-	t_node	*head;
+	size_t	count;
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
+	if (!s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }

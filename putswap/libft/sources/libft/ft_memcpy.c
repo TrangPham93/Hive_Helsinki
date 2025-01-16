@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/02 16:29:43 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 17:58:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#include "../../includes/libft.h"
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_node	*head;
+	size_t			count;
+	unsigned char	*dest_p;
+	unsigned char	*src_p;
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
+	if (!dest && !src)
+		return (NULL);
+	dest_p = (unsigned char *)dest;
+	src_p = (unsigned char *)src;
+	count = 0;
+	while (count < n)
+	{
+		dest_p[count] = src_p[count];
+		count++;
+	}
+	return (dest);
 }

@@ -6,14 +6,15 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:41:55 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/15 15:55:10 by trpham           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:08:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
+# include "./libft/includes/libft.h"
+# include "./libft/includes/ft_printf.h"
 # include <stdlib.h>
 # include <stdio.h>
 

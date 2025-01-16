@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/05 19:43:57 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 12:36:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#include "../../includes/libft.h"
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_node	*head;
+	size_t	i;
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
+	i = 0;
+	while (i < n && (s1[i] || s2[i]))
+	{
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

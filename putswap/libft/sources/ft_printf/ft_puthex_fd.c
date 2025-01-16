@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:04:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/01/16 18:31:41 by trpham           ###   ########.fr       */
+/*   Created: 2024/11/20 10:47:45 by trpham            #+#    #+#             */
+/*   Updated: 2025/01/16 18:16:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./libft/includes/libft.h"
-#include "./libft/includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-void	push_stack(t_node **stack_1, t_node **stack_2)
+int	ft_puthex_fd(unsigned long nbr, int fd, char b)
 {
-	t_node	*head;
+	int		count;
+	char	*base;
 
-	if (*stack_1 == NULL)
-		return ;
-	head = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	(*stack_1)->prev = NULL;
-	
-	head->next = (*stack_2);
-	if (*stack_2)
-		(*stack_2)->prev = head;
-	head->prev = NULL;
-	*stack_2 = head;
+	count = 0;
+	if (b == 'x')
+		base = "0123456789abcdef";
+	else if (b == 'X')
+		base = "0123456789ABCDEF";
+	else
+		return (-1);
+	if (nbr >= 16)
+		count += ft_puthex_fd(nbr / 16, fd, b);
+	ft_putchar_printf(base[nbr % 16], fd);
+	return (count + 1);
 }
