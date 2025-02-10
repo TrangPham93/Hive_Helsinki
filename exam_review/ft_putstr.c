@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 11:11:00 by trpham            #+#    #+#             */
-/*   Updated: 2025/02/10 08:06:45 by trpham           ###   ########.fr       */
+/*   Created: 2025/02/10 08:07:39 by trpham            #+#    #+#             */
+/*   Updated: 2025/02/10 08:10:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	putnbr(int i)
+void	ft_putstr(char *str)
 {
-	if (i > 9)
-		putnbr(i / 10);	
-	write(1, &"0123456789"[i % 10], 1);
+	while (*str)
+	{
+		write(1, &*str, 1);
+		str++;
+	}
 }
 
 int	main(void)
 {
-	int	i;
-
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 != 0)
-			write(1, "fizz\n", 5);
-		else if (i % 5 == 0 && i % 3 != 0)
-			write(1, "buzz\n", 5);
-		else if (i % 5 == 0 && i % 3 == 0)
-			write(1, "fizzbuzz\n", 9);
-		else
-		{
-			putnbr(i);
-			write(1, "\n", 1);
-		}
-		i++;
-	}
-	return (0);
+	char	*str = "Vi sao the \n";
+	ft_putstr(str);
 }

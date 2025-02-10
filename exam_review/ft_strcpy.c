@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 11:11:00 by trpham            #+#    #+#             */
-/*   Updated: 2025/02/10 08:06:45 by trpham           ###   ########.fr       */
+/*   Created: 2025/02/10 08:11:07 by trpham            #+#    #+#             */
+/*   Updated: 2025/02/10 08:31:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	putnbr(int i)
+char	*ft_strcpy(char *s1, char *s2)
 {
-	if (i > 9)
-		putnbr(i / 10);	
-	write(1, &"0123456789"[i % 10], 1);
+	// int	s2_len;
+	char	*temp;
+
+	// s2_len = ft_strlen(s2);
+	// s1 = malloc((s2_len + 1) * sizeof (char));
+	// if (*s1)
+	// 	return ((void *)0);
+	temp = s1;
+	while (*s2)
+	{
+		*s1 = *s2;
+		s1++;
+		s2++; 
+	}
+	*s1 = '\0';
+	return (temp);
 }
 
 int	main(void)
 {
-	int	i;
+	char	*src = "source\n";
+	char	*dst = malloc(8);
 
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 != 0)
-			write(1, "fizz\n", 5);
-		else if (i % 5 == 0 && i % 3 != 0)
-			write(1, "buzz\n", 5);
-		else if (i % 5 == 0 && i % 3 == 0)
-			write(1, "fizzbuzz\n", 9);
-		else
-		{
-			putnbr(i);
-			write(1, "\n", 1);
-		}
-		i++;
-	}
-	return (0);
+	dst = ft_strcpy(dst, src);
+	printf("%s\n", dst);
 }
