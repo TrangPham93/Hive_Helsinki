@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_print.c                                        :+:      :+:    :+:   */
+/*   rotone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 15:30:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/02/10 16:01:05 by trpham           ###   ########.fr       */
+/*   Created: 2025/02/10 16:29:06 by trpham            #+#    #+#             */
+/*   Updated: 2025/02/10 16:41:50 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char	*str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	main(int ac, char *av[])
+int main(int ac, char *av[])
 {
 	int	i;
-	
+
+	i = 0;
 	if (ac == 2)
 	{
-		i = ft_strlen(av[1]);
-		while (i--)
-			write(1, &av[1][i], 1);
+		while (av[1][i])
+		{
+			if ((av[1][i] >= 65 && av[1][i] < 90) || (av[1][i] >= 97 && av[1][i] < 122))
+				av[1][i] += 1;
+			else if (av[1][i] == 90 || av[1][i] == 122)
+				av[1][i] -= 25;
+			write(1, &av[1][i], 1);	
+			i++;
+		}	
 	}
 	write(1, "\n", 1);
 	return (0);
