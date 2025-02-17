@@ -5,6 +5,8 @@ int is_prime(int nb)
 	int i;
 
 	i = 2;
+	if (nb == 1)
+		return (1);
 	while (i < nb)
 	{
 		if (nb % i == 0)
@@ -13,18 +15,25 @@ int is_prime(int nb)
 	}
 	return (0);
 }
-int putnbr(int nb)
+void putnbr(int nb)
 {
 	char c;
 
 	if (nb > 9)
 		putnbr(nb / 10);
-	c = nb % 10 - '0';
+	c = nb % 10 + '0';
 	write(1, &c, 1);
 }
-int atoi(char *s)
+int ft_atoi(char *s)
 {
-	
+	int nb = 0;
+
+	while (*s && *s >= '0' && *s <= '9')
+	{
+		nb = nb * 10 + (*s - '0') ;
+		s++;
+	}
+	return (nb);
 }
 
 int main(int ac, char **av)
@@ -34,28 +43,21 @@ int main(int ac, char **av)
 
 	if (ac == 2 )
 	{
-		if (*av[1] == '1')
-			sum = 1;
-		else if (*av[1] == '2')
-			sum = 3;
-		else
+		nb = 0;
+		sum = 0;
+		while (nb <= ft_atoi(av[1]))
 		{
-			nb = 3;
-			sum = 3;
-			while (nb <= av[1])
-			{
-				if (is_prime(nb) == 0)
-					sum += nb;
-				nb++;
-			}
+			if (is_prime(nb) == 0)
+				sum += nb;
+			nb++;
 		}
-	putnbr(sum);
+		putnbr(sum);
 	}
 	else
 	{
 		write(1, "0", 1);
-		write(1, "\n", 1);
 	}
+	write(1, "\n", 1);
 }
 
 
