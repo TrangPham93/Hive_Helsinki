@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:07:35 by trpham            #+#    #+#             */
-/*   Updated: 2025/02/17 21:36:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/02/24 14:45:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,34 @@ int count_words(char *str)
 	return (count);
 }
 
-char **fill_word(char *str)
+char *dup_word(char *str)
 {
-	while (*str)
-	{
-		if ()
-	}
+	char	*substr;
+	int		i;
 	
+	i = 0;
+	while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+		i++;
+	substr = malloc(sizeof(char) * (i + 1));
+	if (!substr)
+		return (NULL);
+	substr[i] = '\0';
+	while (i--)
+	{
+		substr[i] = str[i];
+	}
+	return (substr);
 }
+
+void	free_arr(char **arr, int word_count)
+{
+	while (word_count--)
+	{
+		free(arr[word_count]);
+	}
+	free(arr);
+}
+
 char **ft_split(char *str)
 {
 	int word_count = 0;
@@ -50,22 +70,40 @@ char **ft_split(char *str)
 	arr = malloc(sizeof(char *) * word_count + 1);
 	if (!arr)
 		return (NULL);
-	while (i < word_count)
+	while (*str)
 	{
-		arr[0] = fill_word()
-		i++;
+		if (*str != ' ' && *str != '\t' && *str != '\n')
+		{
+			arr[i] = dup_word(str);
+			if (!arr[i])
+			{
+				free_arr(arr, i);
+				return (NULL);
+			}
+			i++;
+			while (*str && *str != ' ' && *str != '\t' && *str != '\n')
+				str++;
+		}
+		else
+			str++;
 	}
-	
-	
+	return (arr);
 }
+
 int main(void)
 {
 
 	int word_count = 0;
+	int i = 0;
+	char	*str = "   bao nhieu 	tu   kiem tra xem ?";
 
 	word_count = count_words("  bao nhieu 	tu   kiem tra xem ?");
 	printf("%d\n", word_count);
-		
+	while (i < word_count)
+	{
+		printf("%s\n", ft_split(str)[i]);
+		i++;
+	}
 	
 	// ft_split("	bao nhieu tu   ");
 }
