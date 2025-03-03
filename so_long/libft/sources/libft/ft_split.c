@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:26:36 by trpham            #+#    #+#             */
-/*   Updated: 2025/03/01 17:20:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/03/03 12:11:33 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	word_count = ft_countword(s, c);
 	words_arr = malloc((word_count + 1) * sizeof(char *));
-	if (words_arr == NULL)
+	if (!words_arr)
 		return (NULL);
 	i = 0;
 	words_arr = ft_process(s, c, i, words_arr);

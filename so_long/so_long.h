@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:39:11 by trpham            #+#    #+#             */
-/*   Updated: 2025/03/02 11:32:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/03/03 14:43:33 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "./libft/includes/libft.h"
 # include "./libft/includes/ft_printf.h"
 # include <X11/X.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 # define IMG_W 32
 # define IMG_H 32
@@ -72,9 +72,15 @@ void	init_data(t_data *data);
 
 // read map and validate the maps
 void	read_map(const char *file_name, t_data *data);
-char	*read_and_join_line(int fd);
+// char	*read_and_join_line(int fd);
+void	create_map_array(int fd, t_data *data);
+
 void	is_valid_filename(const char *str);
-void	validate_map(char *str, t_data *data);
+void	fill_map(int fd, t_data *data);
+
+// void	validate_map(char *str, t_data *data);
+void	validate_map(t_data *data);
+
 int		is_rectangular(t_game *game);
 int		is_walled(t_game *game);
 int		one_player_and_exit(t_game *game);
@@ -110,5 +116,9 @@ int		on_destroy(t_data *data);
 void	handle_error(char *s, char *to_free);
 void	winner_print(void);
 void	free_arr(char **arr, int count);
+
+
+void print_map(t_data *data);
+
 
 #endif

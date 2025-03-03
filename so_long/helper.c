@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:45:21 by trpham            #+#    #+#             */
-/*   Updated: 2025/03/02 11:01:15 by trpham           ###   ########.fr       */
+/*   Updated: 2025/03/03 13:27:32 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ void	winner_print(void)
 	ft_printf("|    You found all collectibles and exit.     |\n");
 	ft_printf("|        ✓✓✓✓✓✓✓✓ You won! ✓✓✓✓✓✓✓✓           |\n");
 	ft_printf("-----------------------------------------------\n");
+}
+
+
+void print_map(t_data *data)
+{
+    int i;
+    
+    i = 0;
+	if (!data->game->map)
+		handle_error("there is no map to print", NULL);
+    while (i < data->game->row_count)
+	{
+		ft_printf("%s\n", data->game->map[i]);
+		i++;
+    }
 }
