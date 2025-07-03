@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:30:26 by trpham            #+#    #+#              #
-#    Updated: 2025/07/03 14:17:31 by trpham           ###   ########.fr        #
+#    Updated: 2025/07/03 14:30:42 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ OBJS = $(SRCS:%.c=%.o)
 
 NAME = so_long
 
-# LIBFT_DIR = ./libft
-# LIBFT_NAME = $(LIBFT_DIR)/libft.a
+LIBFT_DIR = ./libft
+LIBFT_NAME = $(LIBFT_DIR)/libft.a
 
 HEADERS = cub3d.h
 
